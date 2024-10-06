@@ -1,5 +1,6 @@
 import { Quicksand } from "next/font/google";
 import "./globals.css";
+import ProviderContainer from "@/provider/ProviderContainer";
 
 const quickSand = Quicksand({
   subsets: ["latin"],
@@ -29,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="/images/logo.png" sizes="any" />
       <body className={quickSand.className}>
-        
+      <ProviderContainer>{children}</ProviderContainer>
       </body>
     </html>
   );
