@@ -7,7 +7,8 @@ import {
   } from "@reduxjs/toolkit/query/react";
   import Cookies from "js-cookie";
   import { setState, setToken, setUser } from "../features/auth/auth.slice";
-  import { RootState } from "../store/store";
+import { RootState } from "../store/store";
+
   export const baseUrl = process.env.NEXT_PUBLIC_API_URL;
   const baseQuery = fetchBaseQuery({
     baseUrl: baseUrl,
@@ -57,6 +58,6 @@ import {
   export const api = createApi({
     reducerPath: "api",
     baseQuery: baseQueryWithRefreshToken,
-    tagTypes: ["user", "project", "image",],
+    tagTypes: ["user", "post", "category"],
     endpoints: () => ({}),
   });

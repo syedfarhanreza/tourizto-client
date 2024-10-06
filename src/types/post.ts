@@ -1,6 +1,7 @@
 import { ICategories } from "./category";
 import { TUser } from "./user";
 
+
 interface IPostRequired {
   content: string;
   images: string[];
