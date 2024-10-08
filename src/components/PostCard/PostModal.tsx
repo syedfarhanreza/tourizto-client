@@ -6,12 +6,9 @@ import {
   DialogHeader,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  useCreateCommentMutation,
-  useGetCommentsByPostIdQuery,
-} from "@/redux/features/comment/comment.api";
+
 import { useAppSelector } from "@/redux/hook";
-import { IComment } from "@/types/comment";
+
 import { IPost } from "@/types/post";
 import { MessageCircle } from "lucide-react";
 import React, { useState } from "react";
@@ -27,6 +24,8 @@ import { Textarea } from "../ui/textarea";
 import PostContent from "./PostContent";
 import VotePost from "./actions/VotePost";
 import TouriztoPagination from "../shared/TouriztoPagination";
+import { useCreateCommentMutation, useGetCommentsByPostIdQuery } from "@/redux/features/comment/comment.api";
+import { IComment } from "@/types/comment";
 
 interface IProps {
   post: IPost;

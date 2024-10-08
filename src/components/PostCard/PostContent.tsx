@@ -4,9 +4,9 @@ import { IPost } from "@/types/post";
 import { format } from "date-fns";
 import { Crown } from "lucide-react";
 import { Badge } from "../ui/badge";
+import { ProfileHoverCard } from "./ProfileCard";
 import PostGallery from "./PostGallery";
 import PostOptions from "./PostOptions";
-import { ProfileHoverCard } from "./ProfileCard";
 const PostContent = ({ post }: { post: IPost }) => {
   return (
     <>

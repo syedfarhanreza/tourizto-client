@@ -1,5 +1,6 @@
 import { api } from "@/redux/api/appSlice";
 import { ICategories } from "@/types/category";
+
 const categoryApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getAllCategories: builder.query<
@@ -16,6 +17,7 @@ const categoryApi = api.injectEndpoints({
           keepUnusedDataFor: 0,
         };
       },
+
       providesTags: ["category"],
     }),
     getCategoriesByName: builder.query<
@@ -30,7 +32,30 @@ const categoryApi = api.injectEndpoints({
       },
       providesTags: ["category"],
     }),
+    createCategory: builder.mutation<ICategories, undefined>({
+      query: (label) => {
+        return {
+          url: `/category/create`,
+          method: "POST",
+          body: { label },
+        };
+      },
+      invalidatesTags: ["category"],
+    }),
+    deleteCategory: builder.mutation<ICategories, string>({
+      query: (id) => {
+        return {
+          url: `/category/delete/${id}`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["category"],
+    }),
   }),
 });
-export const { useGetAllCategoriesQuery, useGetCategoriesByNameQuery } =
-  categoryApi;
+export const {
+  useGetAllCategoriesQuery,
+  useGetCategoriesByNameQuery,
+  useCreateCategoryMutation,
+  useDeleteCategoryMutation,
+} = categoryApi;
