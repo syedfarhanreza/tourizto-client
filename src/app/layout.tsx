@@ -14,7 +14,7 @@ export const metadata = {
   openGraph: {
     title: "Tourizto",
     description: "Travel media",
-    url: "",
+    url: "http://localhost:3000",
     siteName: "Tourizto",
     locale: "en_US",
     type: "website",

@@ -63,7 +63,7 @@ const CreateAccount = () => {
             <Form>
               <div className="mb-4">
                 <label className="block text-primaryTxt text-[18px] font-[600]">
-                  Your firstname
+                  Your First Name
                 </label>
                 <Field
                   type="text"
@@ -78,7 +78,7 @@ const CreateAccount = () => {
               </div>
               <div className="mb-4">
                 <label className="block text-primaryTxt text-[18px] font-[600]">
-                  Your last name
+                  Your Last Name
                 </label>
                 <Field
                   type="text"

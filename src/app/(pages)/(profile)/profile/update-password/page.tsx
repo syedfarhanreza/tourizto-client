@@ -25,7 +25,7 @@ const validationSchema = Yup.object({
 });
 const UpdatePassword = () => {
   const { user, token } = useAppSelector((state) => state.auth);
-  // mutaions
+  // mutations
   const [resetPassword] = useResetPasswordMutation();
   const onSubmit = async (values: FormValues) => {
     const toastId = toast.loading("Please wait");
@@ -39,9 +39,9 @@ const UpdatePassword = () => {
             description: "try to remember your password and try again",
           });
         }
-        return toast.error(error.data?.message || "Unknown error occureds");
+        return toast.error(error.data?.message || "Unknown error occurred");
       }
-      toast.success("Passworrd updated successfully");
+      toast.success("Password updated successfully");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong while updating your details");

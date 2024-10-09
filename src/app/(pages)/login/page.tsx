@@ -39,10 +39,10 @@ const Login = () => {
         }
         if (error.status === 404) {
           return toast.error("Invalid email address", {
-            description: "Enter a valid email adress.",
+            description: "Enter a valid email address.",
           });
         }
-        return toast.error(error.data?.message || "Unknown error occureds");
+        return toast.error(error.data?.message || "Unknown error occurred");
       }
       if (!data) {
         return toast.error("Something went wrong");
@@ -140,7 +140,7 @@ const Login = () => {
               </Link>
             </p>
             <p className="text-gray-700">
-              Don't remember your password?{" "}
+              Don;t remember your password?{" "}
               <Link
                 href="/forgot-password"
                 className="text-primaryMat hover:underline"
