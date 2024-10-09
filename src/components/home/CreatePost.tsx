@@ -18,7 +18,7 @@ const CreatePost = () => {
             value={"newPost"}
             className="flex-1 mr-2"
           />
-          <Button type="submit">Post</Button>
+          <Button  type="submit">Post</Button>
         </form>
       </CardContent>
       <Separator className="my-4" />
