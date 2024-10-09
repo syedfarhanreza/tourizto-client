@@ -23,25 +23,33 @@ const validationSchema = Yup.object({
     )
     .required("* New password is required"),
 });
+
 const UpdatePassword = () => {
   const { user, token } = useAppSelector((state) => state.auth);
-  // mutations
+
+  // mutaions
   const [resetPassword] = useResetPasswordMutation();
+
   const onSubmit = async (values: FormValues) => {
     const toastId = toast.loading("Please wait");
+
     try {
       const data = await resetPassword(values);
       const error: any = data.error;
+
       console.log(error);
+
       if (error) {
         if (error.status === 403) {
           return toast.error("password didn;t matched", {
             description: "try to remember your password and try again",
           });
         }
-        return toast.error(error.data?.message || "Unknown error occurred");
+
+        return toast.error(error.data?.message || "Unknown error occureds");
       }
-      toast.success("Password updated successfully");
+
+      toast.success("Passworrd updated successfully");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong while updating your details");
@@ -49,6 +57,7 @@ const UpdatePassword = () => {
       toast.dismiss(toastId);
     }
   };
+
   return (
     <div className="w-full">
       <h1 className="text-[25px] font-[600] mb-[20px]">
@@ -76,6 +85,7 @@ const UpdatePassword = () => {
                 className="text-red-500 text-sm mt-[5px]"
               />
             </div>
+
             <div className="mb-4">
               <Label htmlFor="password">New password *</Label>
               <Field
@@ -91,6 +101,7 @@ const UpdatePassword = () => {
                 className="text-red-500 text-sm mt-[5px]"
               />
             </div>
+
             <Button
               type="submit"
               disabled={!isValid}
@@ -104,4 +115,5 @@ const UpdatePassword = () => {
     </div>
   );
 };
+
 export default UpdatePassword;

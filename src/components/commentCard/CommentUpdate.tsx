@@ -15,12 +15,12 @@ import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 
-interface IProps {
+interface IPorps {
   comment: IComment;
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const CommentUpdate: React.FC<IProps> = ({ comment, setPage }) => {
+const CommentUpdate: React.FC<IPorps> = ({ comment, setPage }) => {
   const { comment: commentText, _id } = comment;
   const [updateComment, { isError }] = useUpdateCommentMutation();
 

@@ -1,13 +1,14 @@
 import { cn } from "@/lib/utils";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { NavItem } from "../../routes";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "../ui/tooltip";
-import { NavItem } from "@/routes";
 
 interface DashboardNavProps {
   items: NavItem[];
@@ -47,6 +48,7 @@ export function DashboardNav({ items }: DashboardNavProps) {
                 align="center"
                 side="right"
                 sideOffset={8}
+                // className={!isMinimized ? "hidden" : "inline-block"}
               >
                 {title}
               </TooltipContent>

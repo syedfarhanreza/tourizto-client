@@ -8,20 +8,20 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useDeteCommentMutation } from "@/redux/features/comment/comment.api";
 import { IComment } from "@/types/comment";
 import { AlertTriangle } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
-import { useDeleteCommentMutation } from "@/redux/features/comment/comment.api";
 
-interface IProps {
+interface IPorps {
   comment: IComment;
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }
-const CommentDelete: React.FC<IProps> = ({ comment, setPage }) => {
+const CommentDelete: React.FC<IPorps> = ({ comment, setPage }) => {
   const { comment: commentText, _id } = comment;
 
-  const [deleteComment, { isError }] = useDeleteCommentMutation();
+  const [deleteComment, { isError }] = useDeteCommentMutation();
 
   const handleDeleteComment = async () => {
     const toastId = toast.loading("Please wait");

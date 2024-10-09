@@ -1,4 +1,3 @@
-
 "use client";
 import { Button } from "@/components/ui/button";
 import { useVotePostMutation } from "@/redux/features/post/post.api";
@@ -12,8 +11,8 @@ const VotePost = ({ post }: { post: IPost }) => {
 
   const { user } = useAppSelector((state) => state.auth);
   const [votes, setVotes] = useState({
-    upVotes: post.upVotes,
-    downVotes: post.downVotes,
+    upvotes: post.upvotes,
+    downvotes: post.downvotes,
   });
   const handleVote = async (vote: TVoting) => {
     if (!user) {
@@ -21,23 +20,23 @@ const VotePost = ({ post }: { post: IPost }) => {
     }
 
     if (vote === "downvote") {
-      if (votes.downVotes.includes(user._id)) {
-        const downVotes = [...votes.downVotes].filter((v) => v !== user._id);
-        setVotes((v) => ({ ...v, downVotes }));
+      if (votes.downvotes.includes(user._id)) {
+        const downvotes = [...votes.downvotes].filter((v) => v !== user._id);
+        setVotes((v) => ({ ...v, downvotes }));
       } else {
-        const downVotes = [...votes.downVotes, user._id];
-        const upVotes = [...votes.upVotes].filter((v) => v !== user._id);
-        setVotes({ upVotes, downVotes });
+        const downvotes = [...votes.downvotes, user._id];
+        const upvotes = [...votes.upvotes].filter((v) => v !== user._id);
+        setVotes({ upvotes, downvotes });
       }
     } else {
-      if (votes.upVotes.includes(user._id)) {
-        const upVotes = [...votes.upVotes].filter((v) => v !== user._id);
-        setVotes((v) => ({ ...v, upVotes }));
+      if (votes.upvotes.includes(user._id)) {
+        const upvotes = [...votes.upvotes].filter((v) => v !== user._id);
+        setVotes((v) => ({ ...v, upvotes }));
       } else {
-        const upVotes = [...votes.upVotes, user._id];
-        const downVotes = [...votes.downVotes].filter((v) => v !== user._id);
+        const upvotes = [...votes.upvotes, user._id];
+        const downvotes = [...votes.downvotes].filter((v) => v !== user._id);
 
-        setVotes({ downVotes, upVotes });
+        setVotes({ downvotes, upvotes });
       }
     }
 
@@ -48,22 +47,22 @@ const VotePost = ({ post }: { post: IPost }) => {
       <Button
         onClick={() => handleVote("upvote")}
         variant={
-          votes.upVotes.includes(user?._id || "") ? "secondary" : "ghost"
+          votes.upvotes.includes(user?._id || "") ? "secondary" : "ghost"
         }
         size="sm"
       >
         <ChevronUp className="mr-1 h-4 w-4" />
-        UPVOTE: {votes.upVotes?.length || 0}
+        UPVOTE: {votes.upvotes?.length || 0}
       </Button>
       <Button
         size="sm"
         variant={
-          votes.downVotes.includes(user?._id || "") ? "secondary" : "ghost"
+          votes.downvotes.includes(user?._id || "") ? "secondary" : "ghost"
         }
         onClick={() => handleVote("downvote")}
       >
         <ChevronDown className="mr-1 h-4 w-4" />
-        DOWNVOTE: {votes.downVotes?.length || 0}
+        DOWNVOTE: {votes.downvotes?.length || 0}
       </Button>
     </div>
   );

@@ -18,9 +18,12 @@ const validationSchema = Yup.object({
     .oneOf([Yup.ref("password"), undefined], "* Passwords must match")
     .required("* Confirm password is required"),
 });
+
 const RecoverPassword = () => {
   const { token } = useParams();
+
   const router = useRouter();
+
   const handleForgotPassword = async (values: TFormValues) => {
     const res = await fetch(`${baseUrl}/auth/recover-password`, {
       method: "PUT",
@@ -30,6 +33,7 @@ const RecoverPassword = () => {
       },
       body: JSON.stringify({ password: values.password }),
     });
+
     if (res.status === 401) {
       return toast.error(
         "Your password session is expire,please request again for forgot password"
@@ -38,10 +42,12 @@ const RecoverPassword = () => {
     if (res.status === 404) {
       return toast.error("No account found on this email");
     }
+
     if (!res.ok) {
       return toast.error("something went wrong");
     }
     const data = await res.json();
+
     if (data?.success) {
       toast.success("password recovered", {
         description:
@@ -50,6 +56,7 @@ const RecoverPassword = () => {
       router.replace("/login");
     }
   };
+
   return (
     <div className="h-screen w-full center">
       <div className="w-[90%] md:w-[750px] shadow-md flex flex-col gap-[10px] p-[20px] rounded-[15px]">
@@ -92,6 +99,7 @@ const RecoverPassword = () => {
                   className="text-red-500 text-sm"
                 />
               </div>
+
               <button
                 type="submit"
                 className="w-full px-[15px] center gap-[8px] bg-primaryMat text-white py-[12px] hover:bg-green-600 rounded-[5px]"
@@ -105,4 +113,5 @@ const RecoverPassword = () => {
     </div>
   );
 };
+
 export default RecoverPassword;

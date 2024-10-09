@@ -24,7 +24,7 @@ const GetPremiumAccess = () => {
   const handleGetPremiumAccess = async () => {
     setIsLoading(true);
     try {
-      const url = baseUrl + "/user/get-verify-url";
+      const url = baseUrl + "/user/get-varify-url";
       const res = await fetch(url, {
         method: "POST",
         headers: {

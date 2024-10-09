@@ -5,9 +5,8 @@ import { PlusCircle } from "lucide-react";
 import { toast } from "sonner";
 import CreatePostModal from "../PostCreate/CreatePost";
 import { Button } from "../ui/button";
-
+import FolowingList from "./FolowingList";
 import MyFollowers from "./MyFollowers";
-import FollowingList from "./FollowingList";
 const ContentBar = () => {
   const { user } = useAppSelector((state) => state.auth);
 
@@ -28,7 +27,7 @@ const ContentBar = () => {
         </Button>
       )}
       <MyFollowers />
-      <FollowingList />
+      <FolowingList />
     </div>
   );
 };

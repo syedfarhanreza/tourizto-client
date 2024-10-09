@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 const Footer = () => {
   return (
     <footer className="bg-gray-100">
@@ -66,4 +67,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;

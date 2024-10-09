@@ -1,10 +1,12 @@
 "use client";
+
 import { useRegisterCustomerMutation } from "@/redux/features/auth/auth.api";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import * as Yup from "yup";
+
 const initialValues = {
   firstName: "",
   lastName: "",
@@ -26,7 +28,9 @@ const validationSchema = Yup.object({
 });
 const CreateAccount = () => {
   const [register] = useRegisterCustomerMutation();
+
   const router = useRouter();
+
   const handleRegister = async (values: TFormValues) => {
     const toastId = toast.loading("Please wait...");
     try {
@@ -43,11 +47,13 @@ const CreateAccount = () => {
       router.push("/login");
     } catch (error) {
       console.log(error);
+
       toast.error("Something went wrong");
     } finally {
       toast.dismiss(toastId);
     }
   };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-[15px]">
       <div className="bg-white p-[25px]  max-w-xl shadow-md rounded-[12px]">
@@ -63,7 +69,7 @@ const CreateAccount = () => {
             <Form>
               <div className="mb-4">
                 <label className="block text-primaryTxt text-[18px] font-[600]">
-                  Your First Name
+                  Your firstname
                 </label>
                 <Field
                   type="text"
@@ -78,7 +84,7 @@ const CreateAccount = () => {
               </div>
               <div className="mb-4">
                 <label className="block text-primaryTxt text-[18px] font-[600]">
-                  Your Last Name
+                  Your last name
                 </label>
                 <Field
                   type="text"
@@ -136,6 +142,7 @@ const CreateAccount = () => {
                   className="text-red-500 text-sm"
                 />
               </div>
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -154,6 +161,7 @@ const CreateAccount = () => {
             </Link>
           </p>
         </div>
+
         <p className="mt-4 text-gray-600 text-sm text-start">
           Note: Your personal data will be used to support your experience
           throughout this website, to manage access to your account, and for
@@ -163,4 +171,5 @@ const CreateAccount = () => {
     </div>
   );
 };
+
 export default CreateAccount;

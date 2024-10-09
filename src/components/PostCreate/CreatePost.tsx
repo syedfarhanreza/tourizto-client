@@ -16,6 +16,7 @@ import { useCratePostMutation } from "@/redux/features/post/post.api";
 import { addNewPost } from "@/redux/features/post/post.slice";
 import { useAppSelector } from "@/redux/hook";
 import { IPostCreate } from "@/types/post";
+import { upLoadSingeImage } from "@/utils/uploadSingleImage";
 import { PlusCircle, Upload } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -26,7 +27,6 @@ import { ImSpinner2 } from "react-icons/im";
 import { useDispatch } from "react-redux";
 import { toast } from "sonner";
 import CategorySelector from "./CategorySelector";
-import { upLoadSingeImage } from "@/utils/uploadSingleImage";
 
 export default function CreatePostModal() {
   const [open, setOpen] = useState(false);

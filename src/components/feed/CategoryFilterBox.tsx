@@ -10,26 +10,34 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Card } from "../ui/card";
 import { Checkbox } from "../ui/checkbox";
+
 const CategoryFilterBox = () => {
   const { data } = useGetAllCategoriesQuery({ limit: 6 });
+
   const dispatch = useAppDispatch();
+
   const [searchValue, setSearchValue] = useState("N/A");
   const debouncevalue = useDebounce(searchValue, 500);
   const [isFocused, setIsFocused] = useState(false);
   const ref = useRef<HTMLInputElement | null>(null);
   const suggestionRef = useRef<HTMLUListElement | null>(null); // Ref for the suggestion list
-  const { data: suggestion } = useGetCategoriesByNameQuery(debouncevalue, {
+
+  const { data: sudgestion } = useGetCategoriesByNameQuery(debouncevalue, {
     skip: !isFocused,
   });
+
   const searchParams = useSearchParams();
   const router = useRouter();
+
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
   useEffect(() => {
     const categoriesFromQuery = searchParams.get("category");
     if (categoriesFromQuery) {
       setSelectedCategories(categoriesFromQuery.split(","));
     }
   }, [searchParams]);
+
   const handleCategoryChange = (id: string) => {
     let updatedCategories;
     dispatch(setPost({ post: [], new: true }));
@@ -40,23 +48,30 @@ const CategoryFilterBox = () => {
     } else {
       updatedCategories = [...selectedCategories, id];
     }
+
     setSelectedCategories(updatedCategories);
+
     const params = new URLSearchParams(searchParams);
     if (updatedCategories.length > 0) {
       params.set("category", updatedCategories.join(","));
     } else {
       params.delete("category");
     }
+
     params.set("page", "1");
+
     router.push(`?${params.toString()}`);
   };
-  const handleSelectCategory = (id: string) => {
+
+  const handleSlecteCategory = (id: string) => {
     if (selectedCategories.includes(id)) {
       return ref.current?.blur();
     }
+
     handleCategoryChange(id);
     setIsFocused(false); // Close suggestions after selection
   };
+
   const handleClickOutside = (e: MouseEvent) => {
     if (
       ref.current &&
@@ -67,12 +82,14 @@ const CategoryFilterBox = () => {
       setIsFocused(false); // Click outside of input and suggestion list
     }
   };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   return (
     <div>
       <h3 className="mb-2 text-lg font-medium">Categories</h3>
@@ -84,13 +101,13 @@ const CategoryFilterBox = () => {
           onFocus={() => setIsFocused(true)}
           onChange={(e) => setSearchValue(e.target.value)}
         />
-        {suggestion?.data && suggestion?.data.length > 0 && isFocused && (
+        {sudgestion?.data && sudgestion?.data.length > 0 && isFocused && (
           <Card className="absolute left-0 top-[40px] z-10 w-full mt-1 overflow-auto">
             <ul className="py-2" ref={suggestionRef}>
-              {suggestion.data.map(({ label, _id }) => (
+              {sudgestion.data.map(({ label, _id }) => (
                 <li
                   key={_id}
-                  onClick={() => handleSelectCategory(_id)}
+                  onClick={() => handleSlecteCategory(_id)}
                   className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-[10px]"
                 >
                   <SquareCheck width={13} className="text-primary" /> {label}
@@ -115,4 +132,5 @@ const CategoryFilterBox = () => {
     </div>
   );
 };
+
 export default CategoryFilterBox;

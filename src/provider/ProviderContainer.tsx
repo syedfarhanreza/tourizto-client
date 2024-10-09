@@ -1,5 +1,7 @@
+
 import ReduxProvider from "./ReduxProvider";
 import { ThemeProvider } from "./theme-provider";
+
 const ProviderContainer = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider
@@ -15,4 +17,5 @@ const ProviderContainer = ({ children }: { children: React.ReactNode }) => {
     </ThemeProvider>
   );
 };
+
 export default ProviderContainer;

@@ -1,4 +1,4 @@
-import FollowingList from "@/components/feed/FollowingList";
+import FolowingList from "@/components/feed/FolowingList";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Search } from "lucide-react";
@@ -16,7 +16,7 @@ const page = () => {
         </div>
       </div>
       <ScrollArea className="h-[300px] px-4">
-        <FollowingList heading={false} />
+        <FolowingList heading={false} />
       </ScrollArea>
     </div>
   );

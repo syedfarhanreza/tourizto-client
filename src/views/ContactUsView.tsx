@@ -8,7 +8,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Globe, Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-
 const ContactUsView = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,7 +16,7 @@ const ContactUsView = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success(
-      "Thank you for your message. We will reach out to you shortly."
+      "Thank you for your message. We&apos;ll get back to you soon."
     );
   };
 
@@ -26,15 +25,15 @@ const ContactUsView = () => {
       <header className="text-center space-y-4">
         <h1 className="text-4xl font-bold tracking-tight">Contact Us</h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Have any inquiries or suggestions? Feel free to connect with our team
-          for assistance, collaborations, or just a friendly hello!
+          Have questions or feedback? We&apos;d love to hear from you. Get in
+          touch with our team for support, partnerships, or just to say hello!
         </p>
       </header>
 
       <div className="grid md:grid-cols-2 gap-8">
         <Card>
           <CardHeader>
-            <CardTitle>Get in Touch</CardTitle>
+            <CardTitle>Send Us a Message</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -69,7 +68,7 @@ const ContactUsView = () => {
                   required
                 />
               </div>
-              <Button type="submit">Submit Message</Button>
+              <Button type="submit">Send Message</Button>
             </form>
           </CardContent>
         </Card>
@@ -77,12 +76,12 @@ const ContactUsView = () => {
         <div className="space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Contact Details</CardTitle>
+              <CardTitle>Contact Information</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-5 h-5 text-muted-foreground" />
-                <span>123 Travel Avenue, Adventure City, 12345</span>
+                <span>123 Travel Street, Adventure City, 12345</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-5 h-5 text-muted-foreground" />
@@ -90,18 +89,18 @@ const ContactUsView = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-5 h-5 text-muted-foreground" />
-                <span>support@traveltips.com</span>
+                <span>contact@traveltips.com</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Globe className="w-5 h-5 text-muted-foreground" />
-                <span>www.tourizto.com</span>
+                <span>www.traveltips.com</span>
               </div>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle>Business Hours</CardTitle>
+              <CardTitle>Office Hours</CardTitle>
             </CardHeader>
             <CardContent>
               <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
@@ -119,49 +118,51 @@ const ContactUsView = () => {
         <div className="grid md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle>How can I sign up for an account?</CardTitle>
+              <CardTitle>How do I create an account?</CardTitle>
             </CardHeader>
             <CardContent>
               <p>
-                Simply click on the &quot;Sign Up&quot; button located in the
-                top corner of our homepage. Complete the form with your details
-                to create your profile.
+                To create an account, click on the &quot;Loginp&quot; button in
+                the top right corner of our homepage. Follow the prompts to
+                enter your details and set up your profile.
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>Is it possible to share my travel experiences?</CardTitle>
+              <CardTitle>Can I contribute my own travel stories?</CardTitle>
             </CardHeader>
             <CardContent>
               <p>
-                Absolutely! Once you have registered, you can post your travel
-                stories from your dashboard. We welcome all unique travel
-                experiences!
+                Once you&apos;ve created an account, you can submit your travel
+                stories through your user dashboard. We encourage all members to
+                share their unique experiences.
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>What benefits come with premium membership?</CardTitle>
+              <CardTitle>
+                What&apos;s included in the premium membership?
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p>
-                Premium members enjoy an ad-free experience, access to exclusive
-                articles, early feature releases, and special travel deals
-                exclusively available to them.
+                Premium members enjoy ad-free browsing, access to exclusive
+                content, early access to new features, and special travel deals
+                from our partners.
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>How do I report unsuitable content?</CardTitle>
+              <CardTitle>How can I report inappropriate content?</CardTitle>
             </CardHeader>
             <CardContent>
               <p>
-                If you spot any content violating our guidelines, use the
-                &quot;Report&quot; feature next to the post, or get in touch
-                with our support team directly.
+                If you come across any content that violates our community
+                guidelines, please use the &quot;Report&quot; button next to the
+                post or contact our support team directly.
               </p>
             </CardContent>
           </Card>

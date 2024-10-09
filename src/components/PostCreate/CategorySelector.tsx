@@ -5,13 +5,13 @@ import { ICategories } from "@/types/category";
 import { useEffect, useRef, useState } from "react";
 import { Label } from "../ui/label";
 
-interface IProps {
+interface IPorps {
   onChange: (categories: ICategories[]) => void;
 }
 
-const CategorySelector: React.FC<IProps> = ({ onChange }) => {
+const CategorySelector: React.FC<IPorps> = ({ onChange }) => {
   const [value, setValue] = useState<string>("");
-  const debounceValue = useDebounce(value, 500);
+  const debouncevalue = useDebounce(value, 500);
   const [selectedCategories, setSelectedCategories] = useState<ICategories[]>(
     []
   );
@@ -20,8 +20,8 @@ const CategorySelector: React.FC<IProps> = ({ onChange }) => {
   const ref = useRef<HTMLInputElement | null>(null);
   const suggestionRef = useRef<HTMLDivElement | null>(null);
 
-  const { data } = useGetCategoriesByNameQuery(debounceValue, {
-    skip: !debounceValue,
+  const { data } = useGetCategoriesByNameQuery(debouncevalue, {
+    skip: !debouncevalue,
   });
 
   const handleClickOutside = (e: MouseEvent) => {

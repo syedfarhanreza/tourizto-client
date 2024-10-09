@@ -1,3 +1,4 @@
+import { ISideBarState } from "@/app/(dashboard)/layout";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,9 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { IoMenu } from "react-icons/io5";
-import ThemeChanger from "./ThemeChanger";
-import { ISideBarState } from "@/app/(dashboard)/layout";
-
+import ThemeChanger from "./TheamChanger";
 
 const DashboardHeader: React.FC<ISideBarState> = ({ setIsOpen }) => {
   const { user } = useAppSelector((state) => state.auth);

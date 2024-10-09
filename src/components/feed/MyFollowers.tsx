@@ -1,11 +1,11 @@
 "use client";
-import { useGetFollowersQuery } from "@/redux/features/follower/follower.api";
+import { useGetFollwersQuery } from "@/redux/features/follower/follower.api";
 import { setFollowers } from "@/redux/features/follower/follower.slice";
 import { useAppDispatch } from "@/redux/hook";
 import { useEffect } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 const MyFollowers = ({ heading = true }: { heading?: boolean }) => {
-  const { data } = useGetFollowersQuery(undefined);
+  const { data } = useGetFollwersQuery(undefined);
   const dispatch = useAppDispatch();
   useEffect(() => {
     if (data?.data) {

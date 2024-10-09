@@ -14,51 +14,51 @@ import Link from "next/link";
 const cardData = [
   {
     icon: MapPin,
-    title: "Destination Insights",
+    title: "Destination Guides",
     description:
-      "Delve into detailed guides on global destinations, created by seasoned explorers. Whether it's hidden gems or popular landmarks, our guides have all the information you need.",
+      "Discover in-depth guides for global destinations, curated by seasoned travelers. From hidden gems to top attractions, our guides provide comprehensive insights.",
     src: "/images/destination.jpg",
-    alt: "Example of a destination guide",
+    alt: "Destination guide example",
   },
   {
     icon: Users,
-    title: "Traveler Connections",
+    title: "Community Interaction",
     description:
-      "Engage with a community of travelers, share your adventures, and gain inspiration for future journeys. Participate in discussions, ask questions, and forge connections with fellow globetrotters.",
-    src: "/images/community.jfif",
-    alt: "Example of community interaction",
+      "Engage with a community of travel enthusiasts, share your experiences, and get inspired for new adventures. Join discussions, ask for advice, and meet fellow travelers.",
+    src: "/images/community.jpg",
+    alt: "Community interaction example",
   },
   {
     icon: BookOpen,
-    title: "Travel Narratives",
+    title: "Personal Stories",
     description:
-      "Read and contribute personal travel stories that offer unique viewpoints and bring destinations to life. Let the experiences of others inspire your next great adventure.",
-    src: "/images/story.jpg",
-    alt: "Example of a personal travel story",
+      "Read and share captivating travel stories that bring destinations to life. Discover new perspectives through personal journeys and plan your own unique adventures.",
+    src: "/images/story.jpeg",
+    alt: "Personal story example",
   },
   {
     icon: CreditCard,
-    title: "Exclusive Membership",
+    title: "Premium Content",
     description:
-      "Unlock premium content with our membership options. Enjoy ad-free browsing, early access to new features, and special discounts on travel deals.",
-    src: "/images/premium_content.webp",
-    alt: "Example of premium content",
+      "Unlock exclusive features and access in-depth content with a premium membership. Enjoy a seamless experience with ad-free browsing, early feature access, and travel deals.",
+    src: "/images/premium_content.png",
+    alt: "Premium content example",
   },
   {
     icon: Globe,
-    title: "Worldwide Coverage",
+    title: "Global Reach",
     description:
-      "Our platform spans destinations across the globe. From bustling cities to remote villages, find tips and insights from travelers with firsthand experience.",
-    src: "/images/story.jpg",
-    alt: "Map of the world highlighting travel destinations",
+      "Our platform spans all continents, offering insights on everything from bustling cities to remote villages. Get invaluable tips from a diverse community of travelers worldwide.",
+    src: "/images/global_story.jpg",
+    alt: "World map with highlighted destinations",
   },
   {
     icon: Compass,
-    title: "Planning Resources",
+    title: "Travel Planning Tools",
     description:
-      "Access our range of travel tools, including itinerary planners, packing lists, and budget calculators. These tools are designed to simplify and streamline your trip preparation.",
+      "Make use of our extensive planning tools, from itinerary builders to budget calculators. Simplify your travel planning process with our easy-to-use resources.",
     src: "/images/tools.webp",
-    alt: "User interface for travel planning tools",
+    alt: "Travel planning tools interface",
   },
 ];
 
@@ -70,8 +70,7 @@ const AboutUsView = () => {
           About Travel Tips & Destination Guides
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Inspiring travelers to explore, share stories, and create meaningful
-          experiences around the globe.
+          Enabling travelers to share their journeys, uncover new destinations, and create unforgettable memories.
         </p>
       </header>
 
@@ -79,23 +78,15 @@ const AboutUsView = () => {
         <div className="space-y-4">
           <h2 className="text-3xl font-semibold">Our Purpose</h2>
           <p className="text-lg text-muted-foreground">
-            At Travel Tips & Destination Guides, we strive to cultivate a
-            dynamic community of avid travelers. Our platform bridges the gap
-            between wanderers, enabling them to share their adventures, offer
-            advice, and interact with others who share their passion for
-            discovery.
+            At Travel Tips & Destination Guides, we strive to create a vibrant platform for travel lovers. Our goal is to connect adventurers worldwide, helping them exchange stories, travel tips, and experiences.
           </p>
           <p className="text-lg text-muted-foreground">
-            We believe travel not only opens new horizons but also fosters
-            understanding and creates cherished memories. Our mission is to
-            enrich every journey by offering a space where travelers can learn
-            from each other&apos;s experiences and uncover hidden treasures
-            worldwide.
+            We believe travel opens minds, builds bridges between cultures, and forges lifelong memories. Our mission is to enrich every trip by offering a place where travelers can share experiences and uncover hidden treasures.
           </p>
         </div>
         <Image
           src="/images/mission.jpg"
-          alt="Group of travelers discovering a new place"
+          alt="Travelers exploring a new destination"
           width={600}
           height={400}
           className="rounded-lg shadow-md"
@@ -103,11 +94,11 @@ const AboutUsView = () => {
       </section>
 
       <section className="space-y-8">
-        <h2 className="text-3xl font-semibold text-center">Our Offerings</h2>
+        <h2 className="text-3xl font-semibold text-center">What We Provide</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {cardData.map(
             ({ description, icon: Icon, alt, src, title }, index) => (
-              <Card key={index + "our-offerings"}>
+              <Card key={index + "why choose us"}>
                 <CardHeader className="space-y-1">
                   <CardTitle className="text-lg flex items-center">
                     <Icon className="w-5 h-5 mr-2" />
@@ -133,9 +124,7 @@ const AboutUsView = () => {
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-3xl font-semibold text-center">
-          Why Choose Travel Tips?
-        </h2>
+        <h2 className="text-3xl font-semibold text-center">Why Choose Us?</h2>
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <ul className="space-y-4 text-lg">
             <li className="flex items-start">
@@ -143,8 +132,7 @@ const AboutUsView = () => {
                 <Users className="w-4 h-4" />
               </span>
               <span>
-                Genuine travel insights from real people with diverse
-                backgrounds
+                Genuine travel experiences shared by travelers from various backgrounds
               </span>
             </li>
             <li className="flex items-start">
@@ -152,7 +140,7 @@ const AboutUsView = () => {
                 <MapPin className="w-4 h-4" />
               </span>
               <span>
-                Thorough destination guides for well-informed travel planning
+                Detailed destination guides for efficient and well-informed travel planning
               </span>
             </li>
             <li className="flex items-start">
@@ -160,8 +148,7 @@ const AboutUsView = () => {
                 <Globe className="w-4 h-4" />
               </span>
               <span>
-                Community-driven features to engage with fellow travelers
-                worldwide
+                Interactive features to connect with fellow explorers globally
               </span>
             </li>
             <li className="flex items-start">
@@ -169,8 +156,7 @@ const AboutUsView = () => {
                 <BookOpen className="w-4 h-4" />
               </span>
               <span>
-                Personal profiles to showcase your travel experiences and
-                inspire others
+                Customized profiles to showcase your travels and inspire others
               </span>
             </li>
             <li className="flex items-start">
@@ -178,14 +164,13 @@ const AboutUsView = () => {
                 <CreditCard className="w-4 h-4" />
               </span>
               <span>
-                Exclusive membership perks, including premium content and
-                special travel offers
+                Access to premium content for detailed insights, exclusive advice, and special deals
               </span>
             </li>
           </ul>
           <Image
-            src="/images/why_choose.jpg"
-            alt="A collage of travel moments"
+            src="/images/why_choose.png"
+            alt="Collage of travel experiences"
             width={600}
             height={400}
             className="rounded-lg shadow-md"
@@ -194,20 +179,16 @@ const AboutUsView = () => {
       </section>
 
       <section className="bg-muted rounded-lg p-8 text-center space-y-6">
-        <h2 className="text-3xl font-semibold">Join Us on Your Next Journey</h2>
+        <h2 className="text-3xl font-semibold">Ready to Embark on Your Next Journey?</h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Become a part of our vibrant community today and begin sharing your
-          travel stories, exploring new destinations, and connecting with
-          like-minded adventurers. Whether you&apos;re an experienced traveler or
-          planning your first trip, Travel Tips & Destination Guides is your
-          gateway to more fulfilling travel experiences.
+          Become part of our community today to share your travel stories, explore new destinations, and connect with like-minded adventurers. Whether you're a seasoned traveler or just starting out, Travel Tips & Destination Guides offers endless possibilities to enhance your journey.
         </p>
         <div className="flex justify-center gap-4">
           <Button size="lg" asChild>
-            <Link href="/signup">Join Now</Link>
+            <Link href="/signup">Sign Up Now</Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <Link href="/explore">Discover More</Link>
+            <Link href="/explore">Explore Content</Link>
           </Button>
         </div>
       </section>

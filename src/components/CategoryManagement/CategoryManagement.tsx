@@ -19,12 +19,12 @@ import DeleteCategory from "./DeleteCategory";
 
 export default function CategoryManagement() {
   const [searchTerm, setSearchTerm] = useState("");
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const debounsedSearchTerm = useDebounce(searchTerm, 500);
 
   const { data } = useGetAllCategoriesQuery({
     page: 1,
     limit: 10,
-    searchTerm: debouncedSearchTerm,
+    searchTerm: debounsedSearchTerm,
   });
 
   return (

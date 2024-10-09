@@ -1,5 +1,4 @@
-
-import { IFollower } from "@/types/follower";
+import { IFollower } from "@/types/follwer";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState: {

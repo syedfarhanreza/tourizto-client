@@ -8,7 +8,7 @@ import {
 } from "@/redux/features/auth/user.api";
 import { useAppSelector } from "@/redux/hook";
 import { TUser } from "@/types/user";
-import { local_img_url } from "@/utils/localImageURl";
+import { local_img_url } from "@/utils/localImageURL";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { UploadIcon } from "lucide-react";
 import Image from "next/image";
@@ -35,7 +35,7 @@ const ProfileUpdate = () => {
   };
   type FormValues = typeof initialValues & Image;
   type key = keyof Pick<FormValues, "firstName" | "lastName">;
-  const [profileUrl, setProfileUrl] = useState(image || "/images/avatar.jpg");
+  const [profileUrl, setProfileUrl] = useState(image || "/images/avatar.png");
 
   // mutation
   const [updateDetails] = useUpdateUserInfoMutation();

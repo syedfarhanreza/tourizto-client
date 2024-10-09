@@ -1,4 +1,5 @@
 "use client";
+
 import { useLoginUserMutation } from "@/redux/features/auth/auth.api";
 import { setToken, setUser } from "@/redux/features/auth/auth.slice";
 import { ErrorMessage, Field, Form, Formik } from "formik";
@@ -10,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { toast } from "sonner";
 import * as Yup from "yup";
+
 const initialValues = {
   email: "",
   password: "",
@@ -21,11 +23,14 @@ const validationSchema = Yup.object({
     .required("* Email is required"),
   password: Yup.string().required("* Password is required"),
 });
+
 const Login = () => {
   const [login] = useLoginUserMutation();
   const router = useRouter();
   const dispatch = useDispatch();
+
   const redirect = Cookies.get("redirect");
+
   const handleLogin = async (values: TFormValues) => {
     const toastId = toast.loading("Please wait...");
     try {
@@ -39,28 +44,33 @@ const Login = () => {
         }
         if (error.status === 404) {
           return toast.error("Invalid email address", {
-            description: "Enter a valid email address.",
+            description: "Enter a valid email adress.",
           });
         }
-        return toast.error(error.data?.message || "Unknown error occurred");
+
+        return toast.error(error.data?.message || "Unknown error occureds");
       }
+
       if (!data) {
         return toast.error("Something went wrong");
       }
       if (!data.success) {
         return toast.error(data.message);
       }
+
       const authData = {
         user: data.data,
       };
       dispatch(setUser(authData));
       Cookies.set("refreshToken", data.refreshToken, { expires: 30 });
       dispatch(setToken(data.accessToken || ""));
+
       toast.success("Successfully logged in", {
         description: "Welcome back!",
       });
+
       redirect ? Cookies.remove("redirect") : "";
-      router.replace(redirect || "/profile");
+      router.replace(redirect || "/");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
@@ -68,12 +78,13 @@ const Login = () => {
       toast.dismiss(toastId);
     }
   };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-[15px]">
       <div className="flex items-center justify-center gap-[50px]">
         <div className="w-[500px] h-[450px] overflow-hidden rounded-[15px]">
           <Image
-            src={"/images/authLady.png"}
+            src={"/images/auth.jpg"}
             alt="auth"
             width={300}
             className="w-full h-full object-cover"
@@ -119,6 +130,7 @@ const Login = () => {
                     className="text-red-500 text-sm"
                   />
                 </div>
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -140,7 +152,7 @@ const Login = () => {
               </Link>
             </p>
             <p className="text-gray-700">
-              Don;t remember your password?{" "}
+              Dont remeber our password?{" "}
               <Link
                 href="/forgot-password"
                 className="text-primaryMat hover:underline"
@@ -149,6 +161,7 @@ const Login = () => {
               </Link>
             </p>
           </div>
+
           <p className="mt-4 text-gray-600 text-sm text-start">
             Note: Your personal data will be used to support your experience
             throughout this website, to manage access to your account, and for
@@ -159,4 +172,5 @@ const Login = () => {
     </div>
   );
 };
+
 export default Login;

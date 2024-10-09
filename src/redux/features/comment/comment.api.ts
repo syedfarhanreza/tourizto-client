@@ -1,7 +1,6 @@
 import { api } from "@/redux/api/appSlice";
 import { IComment } from "@/types/comment";
 
-
 const commentApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getCommentsByPostId: builder.query<
@@ -29,7 +28,7 @@ const commentApi = api.injectEndpoints({
       },
       invalidatesTags: ["comment"],
     }),
-    deleteComment: builder.mutation<{ data: IComment }, string>({
+    deteComment: builder.mutation<{ data: IComment }, string>({
       query: (commentId) => {
         return {
           url: `/comment/delete/${commentId}`,
@@ -56,6 +55,6 @@ const commentApi = api.injectEndpoints({
 export const {
   useGetCommentsByPostIdQuery,
   useCreateCommentMutation,
-  useDeleteCommentMutation,
+  useDeteCommentMutation,
   useUpdateCommentMutation,
 } = commentApi;

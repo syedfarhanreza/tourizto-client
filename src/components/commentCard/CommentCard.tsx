@@ -6,12 +6,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import CommentDelete from "./CommentDelete";
 import CommentUpdate from "./CommentUpdate";
 
-interface IProps {
+interface IPorps {
   comment: IComment;
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const CommentCard: React.FC<IProps> = ({ comment, setPage }) => {
+const CommentCard: React.FC<IPorps> = ({ comment, setPage }) => {
   const { comment: commentText, user, createdAt } = comment;
   const { user: auth } = useAppSelector((state) => state.auth);
   return (

@@ -1,13 +1,13 @@
 "use client";
 import DashboardHeader from "@/components/shared/DashboardHeader";
+import Sidebar from "@/components/shared/DashboardSidebar";
+import { ThemeProvider } from "@/provider/theme-provider";
 import { useAppSelector } from "@/redux/hook";
 import { useRouter } from "next/navigation";
 import React, { SetStateAction, useState } from "react";
 
 import Loader from "@/components/shared/Loader";
 import Cookies from "js-cookie";
-import { ThemeProvider } from "@/provider/theme-provider";
-import Sidebar from "@/components/shared/DashboardSidebar";
 
 export interface ISideBarState {
   isOpen: boolean;

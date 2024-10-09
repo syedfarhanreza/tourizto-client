@@ -3,7 +3,7 @@ import { TRole, TUser } from "@/types/user";
 
 const userApi = api.injectEndpoints({
   endpoints: (builder) => ({
-
+    // Create blog post
     registerCustomer: builder.mutation({
       query: (post) => ({
         url: "/auth/register",

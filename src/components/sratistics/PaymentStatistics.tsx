@@ -22,8 +22,7 @@ import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { DateRange } from "react-day-picker";
 import DateRangePicker from "../shared/DateRangePicker";
-import StatisticSkeleton from "../skeletons/StatisticsSkeleton";
-
+import StatisticSkeleton from "../skeletons/StatisticSkeleton";
 
 export const description = "An interactive bar chart";
 
@@ -85,7 +84,7 @@ function PaymentStatistics() {
               </div>
             </div>
             <CardDescription>
-              Showing total payment of year {year}
+              Showing toal payment of year {year}
             </CardDescription>
           </div>
         </CardHeader>

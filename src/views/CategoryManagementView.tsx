@@ -1,5 +1,4 @@
-import CategoryManagement from "@/components/CategoryManagement.tsx/CategoryManagement";
-
+import CategoryManagement from "@/components/CategoryManagement/CategoryManagement";
 
 const CategoryManagementView = () => {
   return <CategoryManagement />;

@@ -1,11 +1,10 @@
 import { api } from "@/redux/api/appSlice";
 import { IComment } from "@/types/comment";
-import { IFollower } from "@/types/follower";
-
+import { IFollower } from "@/types/follwer";
 
 const commentApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getFollowers: builder.query<{ data: IFollower[] }, undefined>({
+    getFollwers: builder.query<{ data: IFollower[] }, undefined>({
       query: () => {
         return {
           url: `/follower/get`,
@@ -49,7 +48,7 @@ const commentApi = api.injectEndpoints({
 });
 export const {
   useFollowMutation,
-  useGetFollowersQuery,
+  useGetFollwersQuery,
   useUnFollowMutation,
   useGetFollowingListQuery,
 } = commentApi;

@@ -31,7 +31,7 @@ export function AccountPanel() {
           <div className="w-[40px] h-[40px] rounded-full overflow-hidden">
             <Image
               alt="profile"
-              src={user?.image || "/images/avatar.jpg"}
+              src={user?.image || "/images/avatar.png"}
               width={80}
               height={80}
               className="w-full h-full object-cover"

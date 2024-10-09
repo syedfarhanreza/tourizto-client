@@ -6,14 +6,18 @@ import {
   DialogHeader,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
+import {
+  useCreateCommentMutation,
+  useGetCommentsByPostIdQuery,
+} from "@/redux/features/comment/comment.api";
 import { useAppSelector } from "@/redux/hook";
-
+import { IComment } from "@/types/comment";
 import { IPost } from "@/types/post";
 import { MessageCircle } from "lucide-react";
 import React, { useState } from "react";
 import { toast } from "sonner";
 import CommentCard from "../commentCard/CommentCard";
+import TouriztoPagination from "../shared/TouriztoPagination";
 import CommentCardSkeleton from "../skeletons/CommentCardSkeleton";
 import PostCardSkeleton from "../skeletons/PostCardSkeleton";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
@@ -23,16 +27,13 @@ import { Skeleton } from "../ui/skeleton";
 import { Textarea } from "../ui/textarea";
 import PostContent from "./PostContent";
 import VotePost from "./actions/VotePost";
-import TouriztoPagination from "../shared/TouriztoPagination";
-import { useCreateCommentMutation, useGetCommentsByPostIdQuery } from "@/redux/features/comment/comment.api";
-import { IComment } from "@/types/comment";
 
-interface IProps {
+interface IPorps {
   post: IPost;
   trigger?: React.ReactNode;
 }
 
-const PostModal: React.FC<IProps> = ({ post, trigger }) => {
+const PostModal: React.FC<IPorps> = ({ post, trigger }) => {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(1);
   const [comments, setComments] = useState<IComment[]>([]);

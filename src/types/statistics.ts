@@ -1,4 +1,4 @@
 export interface IUserStatistics {
-    premiumUserCount: number;
-    normalUserCount: number;
-  }
+  premiumUserCount: number;
+  normalUserCount: number;
+}

@@ -6,10 +6,9 @@ import Cookies from "js-cookie";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { SetStateAction, useEffect } from "react";
-
+import { adminLinks } from "../../routes";
 import { Button } from "../ui/button";
 import { DashboardNav } from "./DashboardNav";
-import { adminLinks } from "@/routes";
 
 type SidebarProps = {
   className?: string;
@@ -29,7 +28,7 @@ export default function Sidebar({
     const handleOutsideClick = (event: MouseEvent) => {
       // event target
       const target = event.target as HTMLElement;
-      // screen  width
+      // screent width
       const screen = window.screen.width;
 
       // ---**** return if the screen width is larger
@@ -62,7 +61,7 @@ export default function Sidebar({
     rotate: isOpen ? "0deg" : "180deg",
   };
 
-  const handleLogout = () => {
+  const hanldleLogout = () => {
     Cookies.remove("refreshToken");
     dispatch(logout(undefined));
   };
@@ -87,7 +86,7 @@ export default function Sidebar({
       <div className="w-full">
         <div className="hidden p-5 pt-10 lg:block">
           <Link href={"/"}>
-            <h3 className="font-[600] text-[20px]">ON THE GO</h3>
+            <h3 className="font-[600] text-[20px]">Tourizto</h3>
           </Link>
         </div>
 
@@ -111,7 +110,7 @@ export default function Sidebar({
         </div>
       </div>
       <Button
-        onClick={handleLogout}
+        onClick={hanldleLogout}
         className="w-[90%] mx-auto"
         variant={"destructive"}
       >

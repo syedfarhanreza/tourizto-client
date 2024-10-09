@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import * as Yup from "yup";
 import CheckEmail from "./CheckEmail";
 import { baseUrl } from "@/redux/api/appSlice";
+
 const initialValues = {
   email: "",
 };
@@ -17,11 +18,15 @@ const validationSchema = Yup.object({
     .email("* Invalid email address")
     .required("* Email is required"),
 });
+
 const ForgotPassword = () => {
   const [isSent, setIsSent] = useState(false);
+
   const handleForgotPassword = async (values: TFormValues) => {
     console.log(values);
+
  
+
     try {
       const res = await fetch(`${baseUrl}/auth/forgot-password`, {
         body: JSON.stringify(values),
@@ -34,10 +39,12 @@ const ForgotPassword = () => {
       if (res.status === 404) {
         return toast.error("No account found on this email");
       }
+
       if (!res.ok) {
         return toast.error("something went wrong");
       }
       const data = await res.json();
+
       if (data?.success) {
         setIsSent(true);
       }
@@ -77,6 +84,7 @@ const ForgotPassword = () => {
                     className="text-red-500 text-sm"
                   />
                 </div>
+
                 <button
                   type="submit"
                   className="w-full px-[15px] center gap-[8px] bg-primaryMat text-white py-[12px] hover:bg-green-600 rounded-[5px]"
@@ -91,4 +99,5 @@ const ForgotPassword = () => {
     </div>
   );
 };
+
 export default ForgotPassword;

@@ -1,10 +1,8 @@
 import { Card, CardFooter } from "@/components/ui/card";
 import { IPost } from "@/types/post";
-
-import VotePost from "./actions/VotePost";
 import PostContent from "./PostContent";
 import PostModal from "./PostModal";
-
+import VotePost from "./actions/VotePost";
 
 interface IPorps {
   post: IPost;

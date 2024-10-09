@@ -1,4 +1,5 @@
 import { BoxIcon } from "lucide-react";
+
 const NoPostFound = () => {
   return (
     <div className="flex  flex-col items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8 w-full h-[50vh]">
@@ -15,4 +16,5 @@ const NoPostFound = () => {
     </div>
   );
 };
+
 export default NoPostFound;

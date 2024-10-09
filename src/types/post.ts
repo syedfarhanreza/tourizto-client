@@ -1,25 +1,24 @@
 import { ICategories } from "./category";
 import { TUser } from "./user";
 
-
-interface IPostRequired {
+interface IPostReqired {
   content: string;
   images: string[];
   premium: boolean;
 }
 
-export interface IPostCreate extends IPostRequired {
+export interface IPostCreate extends IPostReqired {
   categories: string[];
 }
 
-export interface IPost extends IPostRequired {
+export interface IPost extends IPostReqired {
   _id: string;
   categories: ICategories[];
   user: TUser;
-  upVotes: string[];
-  downVotes: string[];
-  upVoteCount: number;
-  downVoteCount: number;
+  upvotes: string[];
+  downvotes: string[];
+  upvoteCount: number;
+  downvoteCount: number;
   commentCount: number;
   createdAt: string;
   updatedAt: string;

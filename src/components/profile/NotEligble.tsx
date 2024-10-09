@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { AlertCircle } from "lucide-react";
 import Image from "next/image";
-const NotEligible = () => {
+const NotEligble = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -45,7 +45,7 @@ const NotEligible = () => {
             following criteria:
           </p>
           <ul className="list-disc pl-5 text-sm text-muted-foreground">
-            <li>Have at least one up-vote on your posts</li>
+            <li>Have at least one upvote on your posts</li>
           </ul>
           <p className="text-sm text-muted-foreground">
             Keep engaging with the community and creating quality content.
@@ -61,4 +61,4 @@ const NotEligible = () => {
   );
 };
 
-export default NotEligible;
+export default NotEligble;
