@@ -5,8 +5,8 @@
 ## 🔗 Server side repository - [TOURIZTO-server](https://tourizto-server.vercel.app/)
 
 ## Admin Access 
--user: admin@tourizto.com
--password: admin
+- user: admin@tourizto.com
+- password: admin
 
 ## Introduction
 
