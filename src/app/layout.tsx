@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tourizto",
     description: "Travel media",
-    url: "http://loacalhost:3000",
+    url: "https://tourizto-client.vercel.app/",
     siteName: "Tourizto",
     locale: "en_US",
     type: "website",

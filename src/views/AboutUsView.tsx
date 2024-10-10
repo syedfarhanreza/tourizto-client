@@ -181,7 +181,7 @@ const AboutUsView = () => {
       <section className="bg-muted rounded-lg p-8 text-center space-y-6">
         <h2 className="text-3xl font-semibold">Ready to Embark on Your Next Journey?</h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Become part of our community today to share your travel stories, explore new destinations, and connect with like-minded adventurers. Whether you're a seasoned traveler or just starting out, Travel Tips & Destination Guides offers endless possibilities to enhance your journey.
+          Become part of our community today to share your travel stories, explore new destinations, and connect with like-minded adventurers. Whether you&apos;re a seasoned traveler or just starting out, Travel Tips & Destination Guides offers endless possibilities to enhance your journey.
         </p>
         <div className="flex justify-center gap-4">
           <Button size="lg" asChild>
