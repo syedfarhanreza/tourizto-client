@@ -39,7 +39,7 @@ const DashboardHeader: React.FC<ISideBarState> = ({ setIsOpen }) => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Avatar className="cursor-pointer">
-              <AvatarImage src={user?.image || ""} alt="user avatar" />
+              <AvatarImage  src={user?.image || ""} alt="user avatar" />
               <AvatarFallback>
                 <p className="text-muted-foreground uppercase">
                   {user?.firstName?.slice(0, 1)}
