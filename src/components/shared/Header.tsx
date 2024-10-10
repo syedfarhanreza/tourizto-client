@@ -14,26 +14,26 @@ const Header = () => {
   const { user, isLoading, token } = useAppSelector((state) => state.auth);
 
   return (
-    <header className="py-5 lg:py-7 border-b sticky top-0 z-50 bg-white ">
+    <header className="py-5 lg:py-7 border-b sticky top-0 z-50 bg-black  mb-4">
       <div className="layout_container flex justify-between gap-4 items-center">
         <div className="flex items-center gap-2">
           <LeftSidebar />
           <Link href={"/"} className="text-lg font-bold">
             <Image
-              width={60}
-              height={60}
+              width={100}
+              height={100}
               src="/images/logo.png"
               alt="logo"
-              className="w-[60px] md:flex hidden"
+              className="w-[80px] md:flex hidden"
             />
           </Link>
         </div>
-        <nav className="hidden lg:flex gap-5 items-center">
+        <nav className="hidden lg:flex gap-16 items-center">
           {navLinks.map((nav) => (
             <Link
               key={nav.path}
               href={nav.path}
-              className={`text-slate-700 hover:text-green-500 ${
+              className={`text-orange-600 text-lg hover:text-orange-400 ${
                 location === nav.path && "font-extrabold text-green-600"
               }`}
             >
@@ -46,7 +46,7 @@ const Header = () => {
           {user ? (
             <AccountPanel />
           ) : (
-            <Link href="/login" className="text-slate-700 hover:text-green-500">
+            <Link href="/login" className="text-orange-600 text-lg hover:text-orange-400 btn border-2 border-orange-600 px-4 py-1 rounded-xl">
               Login
             </Link>
           )}
