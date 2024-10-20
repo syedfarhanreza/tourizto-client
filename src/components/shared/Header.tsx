@@ -14,7 +14,7 @@ const Header = () => {
   const { user, isLoading, token } = useAppSelector((state) => state.auth);
 
   return (
-    <header className="py-5 lg:py-7 border-b sticky top-0 z-50 bg-black  mb-4">
+    <header className="px-10 py-5 lg:py-7 border-b sticky top-0 z-50 bg-black">
       <div className="layout_container flex justify-between gap-4 items-center">
         <div className="flex items-center gap-2">
           <LeftSidebar />

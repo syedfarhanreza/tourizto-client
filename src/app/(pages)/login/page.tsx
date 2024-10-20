@@ -44,11 +44,11 @@ const Login = () => {
         }
         if (error.status === 404) {
           return toast.error("Invalid email address", {
-            description: "Enter a valid email adress.",
+            description: "Enter a valid email address.",
           });
         }
 
-        return toast.error(error.data?.message || "Unknown error occureds");
+        return toast.error(error.data?.message || "Unknown error occurred");
       }
 
       if (!data) {
@@ -80,19 +80,20 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-[15px]">
-      <div className="flex items-center justify-center gap-[50px]">
-        <div className="w-[500px] h-[450px] overflow-hidden rounded-[15px]">
-          <Image
-            src={"/images/auth.jpg"}
-            alt="auth"
-            width={300}
-            className="w-full h-full object-cover"
-            height={350}
-          />
-        </div>
-        <div className="bg-white max-w-[450px]">
-          <h2 className="font-bold mb-6 text-left text-[35px]">Login</h2>
+    <div className="min-h-screen relative flex flex-col items-center justify-center px-[15px]">
+      <div className="absolute inset-0 w-full h-full z-0">
+        <Image
+          src={"/images/auth.jpg"}
+          alt="auth"
+          layout="fill"
+          objectFit="cover"
+          className="w-full h-full"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
+      </div>
+      <div className="relative z-10 flex items-center justify-center gap-[50px]">
+        <div className="bg-white max-w-[450px] p-8 rounded-lg shadow-lg">
+          <h2 className="font-bold mb-6 text-center text-primaryMat text-[35px]">Login</h2>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -107,7 +108,7 @@ const Login = () => {
                   <Field
                     type="email"
                     name="email"
-                    className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none"
+                    className="mt-1 block w-full px-3 py-2 border bg-gray-600 border-borderColor rounded-md outline-none"
                   />
                   <ErrorMessage
                     name="email"
@@ -122,7 +123,7 @@ const Login = () => {
                   <Field
                     type="password"
                     name="password"
-                    className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none"
+                    className="mt-1 block w-full px-3 py-2 border bg-gray-600 border-borderColor rounded-md outline-none"
                   />
                   <ErrorMessage
                     name="password"
@@ -134,7 +135,7 @@ const Login = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-fit px-[15px] center gap-[8px] bg-primaryMat text-white py-[12px] hover:bg-green-600 rounded-[5px]"
+                  className="w-full px-[5px] center gap-[8px] bg-primaryMat text-white py-[12px] hover:bg-green-600 rounded-[5px]"
                 >
                   Login <LogIn />
                 </button>
@@ -152,21 +153,15 @@ const Login = () => {
               </Link>
             </p>
             <p className="text-gray-700">
-              Dont remeber our password?{" "}
+              Don&apos;t remember your password?{" "}
               <Link
                 href="/forgot-password"
                 className="text-primaryMat hover:underline"
               >
-                forgot password
+                Forgot Password
               </Link>
             </p>
           </div>
-
-          <p className="mt-4 text-gray-600 text-sm text-start">
-            Note: Your personal data will be used to support your experience
-            throughout this website, to manage access to your account, and for
-            other purposes described in our privacy policy.
-          </p>
         </div>
       </div>
     </div>

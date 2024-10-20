@@ -2,6 +2,7 @@
 
 import { useRegisterCustomerMutation } from "@/redux/features/auth/auth.api";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -55,9 +56,20 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-[15px]">
-      <div className="bg-white p-[25px]  max-w-xl shadow-md rounded-[12px]">
-        <h2 className=" font-bold mb-6 text-left text-[35px]">
+    <div className="min-h-screen relative flex flex-col items-center justify-center">
+      <div className="absolute inset-0 w-full h-full z-0">
+        <Image
+          src={"/images/auth.jpg"}
+          alt="auth background"
+          layout="fill"
+          objectFit="cover"
+          className="w-full h-full"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
+      </div>
+      <div className="relative z-10 bg-white p-[50px] max-w-xl shadow-md rounded-[12px]">
+        <h2 className="font-bold mb-4 text-center text-primaryMat text-[35px]">
           Create an Account
         </h2>
         <Formik
@@ -69,12 +81,12 @@ const CreateAccount = () => {
             <Form>
               <div className="mb-4">
                 <label className="block text-primaryTxt text-[18px] font-[600]">
-                  Your firstname
+                  Your First Name
                 </label>
                 <Field
                   type="text"
                   name="firstName"
-                  className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none"
+                  className="mt-1 block w-full px-3 py-2 bg-gray-600 border border-borderColor rounded-md outline-none"
                 />
                 <ErrorMessage
                   name="firstName"
@@ -84,12 +96,12 @@ const CreateAccount = () => {
               </div>
               <div className="mb-4">
                 <label className="block text-primaryTxt text-[18px] font-[600]">
-                  Your last name
+                  Your Last Name
                 </label>
                 <Field
                   type="text"
                   name="lastName"
-                  className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none"
+                  className="mt-1 block w-full px-3 py-2 bg-gray-600 border border-borderColor rounded-md outline-none"
                 />
                 <ErrorMessage
                   name="lastName"
@@ -104,7 +116,7 @@ const CreateAccount = () => {
                 <Field
                   type="email"
                   name="email"
-                  className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none"
+                  className="mt-1 block w-full px-3 py-2 bg-gray-600 border border-borderColor rounded-md outline-none"
                 />
                 <ErrorMessage
                   name="email"
@@ -119,7 +131,7 @@ const CreateAccount = () => {
                 <Field
                   type="password"
                   name="password"
-                  className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none"
+                  className="mt-1 block w-full px-3 py-2 bg-gray-600 border border-borderColor rounded-md outline-none"
                 />
                 <ErrorMessage
                   name="password"
@@ -128,13 +140,13 @@ const CreateAccount = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-primaryTxt text-[18px] font-[600]">
+                <label className="block text-primaryTxt  text-[18px] font-[600]">
                   Confirm Password
                 </label>
                 <Field
                   type="password"
                   name="confirmPassword"
-                  className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none"
+                  className="mt-1 block w-full px-3 py-2 bg-gray-600 border border-borderColor rounded-md outline-none"
                 />
                 <ErrorMessage
                   name="confirmPassword"
@@ -146,9 +158,9 @@ const CreateAccount = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primaryMat text-white py-[12px]  hover:bg-green-600 rounded-[5px]"
+                className="w-full bg-primaryMat text-white py-[12px] hover:bg-green-600 rounded-[5px]"
               >
-                Submit & Register
+                Register
               </button>
             </Form>
           )}
@@ -161,12 +173,6 @@ const CreateAccount = () => {
             </Link>
           </p>
         </div>
-
-        <p className="mt-4 text-gray-600 text-sm text-start">
-          Note: Your personal data will be used to support your experience
-          throughout this website, to manage access to your account, and for
-          other purposes described in our privacy policy.
-        </p>
       </div>
     </div>
   );

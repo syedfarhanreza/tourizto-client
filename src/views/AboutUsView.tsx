@@ -64,24 +64,31 @@ const cardData = [
 
 const AboutUsView = () => {
   return (
-    <div className="container mx-auto px-4 py-8 space-y-12">
-      <header className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">
-          About Travel Tips & Destination Guides
+    <div className="container mx-auto px-6 py-12 space-y-16">
+      <header className="text-center space-y-6">
+        <h1 className="text-5xl font-extrabold tracking-tight leading-tight text-primaryMat">
+          Discover. Share. Explore.
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Enabling travelers to share their journeys, uncover new destinations, and create unforgettable memories.
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          Join our community of travelers and explore the world through
+          personalized guides, engaging stories, and invaluable tips from fellow
+          adventurers.
         </p>
       </header>
 
-      <section className="grid md:grid-cols-2 gap-8 items-center">
-        <div className="space-y-4">
-          <h2 className="text-3xl font-semibold">Our Purpose</h2>
-          <p className="text-lg text-muted-foreground">
-            At Travel Tips & Destination Guides, we strive to create a vibrant platform for travel lovers. Our goal is to connect adventurers worldwide, helping them exchange stories, travel tips, and experiences.
+      {/* Our Purpose Section */}
+      <section className="grid md:grid-cols-2 gap-12 items-center bg-gray-50 p-8 rounded-lg shadow-lg">
+        <div className="space-y-6">
+          <h2 className="text-4xl font-bold text-primaryMat">Our Purpose</h2>
+          <p className="text-lg text-gray-600">
+            At Travel Tips & Destination Guides, we aim to create a vibrant
+            community where travelers connect, share experiences, and uncover
+            hidden treasures. We believe travel enriches lives, fosters
+            cultural exchange, and builds memories that last a lifetime.
           </p>
-          <p className="text-lg text-muted-foreground">
-            We believe travel opens minds, builds bridges between cultures, and forges lifelong memories. Our mission is to enrich every trip by offering a place where travelers can share experiences and uncover hidden treasures.
+          <p className="text-lg text-gray-600">
+            Whether you're a seasoned explorer or planning your first adventure,
+            we provide tools and inspiration to make your journey unforgettable.
           </p>
         </div>
         <Image
@@ -89,32 +96,31 @@ const AboutUsView = () => {
           alt="Travelers exploring a new destination"
           width={600}
           height={400}
-          className="rounded-lg shadow-md"
+          className="rounded-lg shadow-md object-cover"
         />
       </section>
 
+     
       <section className="space-y-8">
-        <h2 className="text-3xl font-semibold text-center">What We Provide</h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <h2 className="text-4xl font-bold text-center text-primaryMat">
+          What We Provide
+        </h2>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {cardData.map(
             ({ description, icon: Icon, alt, src, title }, index) => (
-              <Card key={index + "why choose us"}>
-                <CardHeader className="space-y-1">
-                  <CardTitle className="text-lg flex items-center">
-                    <Icon className="w-5 h-5 mr-2" />
-                    {title}
-                  </CardTitle>
+              <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow">
+                <CardHeader className="flex items-center space-x-4">
+                  <Icon className="w-6 h-6 text-primaryMat" />
+                  <CardTitle className="text-xl font-semibold">{title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {description}
-                  </p>
+                <CardContent className="space-y-4">
+                  <p className="text-gray-600">{description}</p>
                   <Image
                     src={src}
                     alt={alt}
                     width={300}
-                    height={150}
-                    className="rounded-md mx-auto w-full aspect-[300/150] object-cover"
+                    height={200}
+                    className="rounded-md w-full h-48 object-cover"
                   />
                 </CardContent>
               </Card>
@@ -123,71 +129,65 @@ const AboutUsView = () => {
         </div>
       </section>
 
-      <section className="space-y-6">
-        <h2 className="text-3xl font-semibold text-center">Why Choose Us?</h2>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <ul className="space-y-4 text-lg">
-            <li className="flex items-start">
-              <span className="bg-primary text-primary-foreground rounded-full p-1 mr-2 mt-1">
-                <Users className="w-4 h-4" />
-              </span>
-              <span>
-                Genuine travel experiences shared by travelers from various backgrounds
-              </span>
-            </li>
-            <li className="flex items-start">
-              <span className="bg-primary text-primary-foreground rounded-full p-1 mr-2 mt-1">
-                <MapPin className="w-4 h-4" />
-              </span>
-              <span>
-                Detailed destination guides for efficient and well-informed travel planning
-              </span>
-            </li>
-            <li className="flex items-start">
-              <span className="bg-primary text-primary-foreground rounded-full p-1 mr-2 mt-1">
-                <Globe className="w-4 h-4" />
-              </span>
-              <span>
-                Interactive features to connect with fellow explorers globally
-              </span>
-            </li>
-            <li className="flex items-start">
-              <span className="bg-primary text-primary-foreground rounded-full p-1 mr-2 mt-1">
-                <BookOpen className="w-4 h-4" />
-              </span>
-              <span>
-                Customized profiles to showcase your travels and inspire others
-              </span>
-            </li>
-            <li className="flex items-start">
-              <span className="bg-primary text-primary-foreground rounded-full p-1 mr-2 mt-1">
-                <CreditCard className="w-4 h-4" />
-              </span>
-              <span>
-                Access to premium content for detailed insights, exclusive advice, and special deals
-              </span>
-            </li>
-          </ul>
-          <Image
-            src="/images/why_choose.png"
-            alt="Collage of travel experiences"
-            width={600}
-            height={400}
-            className="rounded-lg shadow-md"
-          />
-        </div>
+      <section className="grid md:grid-cols-2 gap-12 items-center bg-gray-100 text-gray-800 p-8 rounded-lg shadow-lg">
+        <ul className="space-y-6 text-lg">
+          <li className="flex items-center space-x-3">
+            <Users className="w-6 h-6 text-primaryMat" />
+            <span>
+              Genuine travel experiences shared by travelers from various
+              backgrounds.
+            </span>
+          </li>
+          <li className="flex items-center space-x-3">
+            <MapPin className="w-6 h-6 text-primaryMat" />
+            <span>
+              Detailed destination guides for efficient and well-informed
+              planning.
+            </span>
+          </li>
+          <li className="flex items-center space-x-3">
+            <Globe className="w-6 h-6 text-primaryMat" />
+            <span>
+              Interactive features to connect with fellow explorers worldwide.
+            </span>
+          </li>
+          <li className="flex items-center space-x-3">
+            <BookOpen className="w-6 h-6 text-primaryMat" />
+            <span>
+              Customized profiles to showcase your travels and inspire others.
+            </span>
+          </li>
+          <li className="flex items-center space-x-3">
+            <CreditCard className="w-6 h-6 text-primaryMat" />
+            <span>
+              Access to premium content for detailed insights and travel deals.
+            </span>
+          </li>
+        </ul>
+        <Image
+          src="/images/why_choose.png"
+          alt="Collage of travel experiences"
+          width={600}
+          height={400}
+          className="rounded-lg shadow-md object-cover"
+        />
       </section>
 
-      <section className="bg-muted rounded-lg p-8 text-center space-y-6">
-        <h2 className="text-3xl font-semibold">Ready to Embark on Your Next Journey?</h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Become part of our community today to share your travel stories, explore new destinations, and connect with like-minded adventurers. Whether you&apos;re a seasoned traveler or just starting out, Travel Tips & Destination Guides offers endless possibilities to enhance your journey.
+      <section className="bg-primaryMat rounded-lg p-8 text-center space-y-8 shadow-md">
+        <h2 className="text-4xl font-bold text-white">
+          Ready to Embark on Your Next Journey?
+        </h2>
+        <p className="text-lg text-white max-w-2xl mx-auto">
+          Become part of our community today to share your travel stories,
+          explore new destinations, and connect with like-minded adventurers.
+          Whether you're a seasoned traveler or just starting out, we offer
+          endless possibilities to enhance your journey.
         </p>
         <div className="flex justify-center gap-4">
-          <Button size="lg" asChild>
+          <Button size="lg" asChild className="text-primaryMat">
             <Link href="/signup">Sign Up Now</Link>
           </Button>
-          <Button size="lg" variant="outline" asChild>
+          <Button size="lg" variant="outline" asChild className="text-primaryMat">
             <Link href="/explore">Explore Content</Link>
           </Button>
         </div>
