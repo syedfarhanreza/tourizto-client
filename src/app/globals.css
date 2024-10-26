@@ -167,3 +167,54 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(277px, 1fr));
 }
+.animate-shiftGradient {
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 58%, rgba(252,176,69,1) 100%);
+  animation: shiftGradient 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes shiftGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+.animate-shiftGradient {
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 58%, rgba(252,176,69,1) 100%);
+  animation: shiftGradient 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+.bg-gradientRed {
+  background-color: rgba(253, 29, 29, 0.5); /* Harmonized red glow */
+}
+
+.bg-gradientOrange {
+  background-color: rgba(252, 176, 69, 0.5); /* Harmonized orange glow */
+}
+
+.animate-glowPulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.shadow-md {
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+

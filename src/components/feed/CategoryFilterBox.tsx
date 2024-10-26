@@ -22,7 +22,7 @@ const CategoryFilterBox = () => {
   const ref = useRef<HTMLInputElement | null>(null);
   const suggestionRef = useRef<HTMLUListElement | null>(null); // Ref for the suggestion list
 
-  const { data: sudgestion } = useGetCategoriesByNameQuery(debouncevalue, {
+  const { data: suggestion } = useGetCategoriesByNameQuery(debouncevalue, {
     skip: !isFocused,
   });
 
@@ -63,13 +63,13 @@ const CategoryFilterBox = () => {
     router.push(`?${params.toString()}`);
   };
 
-  const handleSlecteCategory = (id: string) => {
+  const handleSelectCategory = (id: string) => {
     if (selectedCategories.includes(id)) {
       return ref.current?.blur();
     }
 
     handleCategoryChange(id);
-    setIsFocused(false); // Close suggestions after selection
+    setIsFocused(false); 
   };
 
   const handleClickOutside = (e: MouseEvent) => {
@@ -79,7 +79,7 @@ const CategoryFilterBox = () => {
       suggestionRef.current &&
       !suggestionRef.current.contains(e.target as Node)
     ) {
-      setIsFocused(false); // Click outside of input and suggestion list
+      setIsFocused(false); 
     }
   };
 
@@ -95,19 +95,19 @@ const CategoryFilterBox = () => {
       <h3 className="mb-2 text-lg font-medium">Categories</h3>
       <div className="px-[10px] border-[1px] border-borderColor rounded-[5px] w-full h-[40px] mb-[20px] relative">
         <input
-          className="border-0 border-transparent outline-none w-full h-full"
+          className="border-0 bg-gray-950 border-transparent outline-none w-full h-full"
           placeholder="search category"
           ref={ref}
           onFocus={() => setIsFocused(true)}
           onChange={(e) => setSearchValue(e.target.value)}
         />
-        {sudgestion?.data && sudgestion?.data.length > 0 && isFocused && (
+        {suggestion?.data && suggestion?.data.length > 0 && isFocused && (
           <Card className="absolute left-0 top-[40px] z-10 w-full mt-1 overflow-auto">
             <ul className="py-2" ref={suggestionRef}>
-              {sudgestion.data.map(({ label, _id }) => (
+              {suggestion.data.map(({ label, _id }) => (
                 <li
                   key={_id}
-                  onClick={() => handleSlecteCategory(_id)}
+                  onClick={() => handleSelectCategory(_id)}
                   className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-[10px]"
                 >
                   <SquareCheck width={13} className="text-primary" /> {label}

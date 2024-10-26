@@ -1,6 +1,7 @@
-import PaymentStatistics from "@/components/sratistics/PaymentStatistics";
-import StatisticsHeading from "@/components/sratistics/StatisticsHeading";
-import UserStatistics from "@/components/sratistics/UserStatistics";
+import PaymentStatistics from "@/components/statistics/PaymentStatistics";
+import StatisticsHeading from "@/components/statistics/StatisticsHeading";
+import UserStatistics from "@/components/statistics/UserStatistics";
+
 const StatisticsView = () => {
   return (
     <div className="w-full">

@@ -2,7 +2,7 @@ import { baseUrl } from "@/redux/api/appSlice";
 import { useAppSelector } from "@/redux/hook";
 import { useEffect, useState } from "react";
 import GetPremiumAccess from "./GetPremiumAccess";
-import NotEligble from "./NotEligble";
+import NotEligible from "./NotEligible";
 const PremiumAccess = () => {
   const [isCapable, setIsCapable] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +36,7 @@ const PremiumAccess = () => {
     return <div>Loading...</div>;
   }
 
-  return <div>{isCapable ? <GetPremiumAccess /> : <NotEligble />}</div>;
+  return <div>{isCapable ? <GetPremiumAccess /> : <NotEligible />}</div>;
 };
 
 export default PremiumAccess;

@@ -61,7 +61,7 @@ export default function Sidebar({
     rotate: isOpen ? "0deg" : "180deg",
   };
 
-  const hanldleLogout = () => {
+  const handleLogout = () => {
     Cookies.remove("refreshToken");
     dispatch(logout(undefined));
   };
@@ -110,7 +110,7 @@ export default function Sidebar({
         </div>
       </div>
       <Button
-        onClick={hanldleLogout}
+        onClick={handleLogout}
         className="w-[90%] mx-auto"
         variant={"destructive"}
       >

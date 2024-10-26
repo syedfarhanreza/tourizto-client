@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AccountPanel } from "../client/AccountPanel";
 import { LeftSidebar } from "../client/LeftSidebar";
+import FilterPremiumContent from "../feed/FilterPremiumContent";
 
 const Header = () => {
   const location = usePathname();
@@ -28,7 +29,7 @@ const Header = () => {
             />
           </Link>
         </div>
-        <nav className="hidden lg:flex gap-16 items-center">
+        <nav className="hidden lg:flex mx-auto gap-16 items-center">
           {navLinks.map((nav) => (
             <Link
               key={nav.path}
@@ -42,7 +43,9 @@ const Header = () => {
           ))}
         </nav>
 
+
         <div className="flex gap-3 items-center justify-start ">
+        <FilterPremiumContent />
           {user ? (
             <AccountPanel />
           ) : (

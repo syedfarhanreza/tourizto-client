@@ -8,24 +8,16 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { AlertCircle } from "lucide-react";
-import Image from "next/image";
-const NotEligble = () => {
+
+const NotEligible = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button
-          variant={"outline"}
-          className="mt-[20px] relative group/premium"
+          variant="default"
+          className="mt-5 bg-gradient-to-r from-[#D97706] to-[#C05621] hover:from-[#C05621] hover:to-[#A53F1A] text-white font-bold shadow-lg rounded-full py-3 px-6 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A53F1A] transform hover:scale-105"
         >
           Verify Account
-          <Image
-            width={100}
-            height={100}
-            src="/images/crown.png"
-            alt="verify"
-            className="absolute top-[-13px] right-[-16px] rotate-[20deg] w-[40px] scale-1 group-hover/premium:rotate-0 group-hover/premium:scale-[1.2]"
-            style={{ transition: "0.3s" }}
-          />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
@@ -61,4 +53,4 @@ const NotEligble = () => {
   );
 };
 
-export default NotEligble;
+export default NotEligible;

@@ -5,13 +5,13 @@ import { PlusCircle } from "lucide-react";
 import { toast } from "sonner";
 import CreatePostModal from "../PostCreate/CreatePost";
 import { Button } from "../ui/button";
-import FolowingList from "./FolowingList";
+import FollowingList from "./FollowingList";
 import MyFollowers from "./MyFollowers";
 const ContentBar = () => {
   const { user } = useAppSelector((state) => state.auth);
 
   return (
-    <div className="w-64 bg-white p-4 hidden lg:block">
+    <div className="w-64 p-4 hidden lg:block">
       <h2 className="font-semibold mb-4">Seemed Stories</h2>
 
       {user ? (
@@ -27,7 +27,7 @@ const ContentBar = () => {
         </Button>
       )}
       <MyFollowers />
-      <FolowingList />
+      <FollowingList />
     </div>
   );
 };

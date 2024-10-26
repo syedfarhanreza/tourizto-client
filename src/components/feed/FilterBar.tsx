@@ -7,12 +7,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import CategoryFilterBox from "./CategoryFilterBox";
-import FilterPremiumContent from "./FilterPremiumContent";
 import SortPost from "./SortPost";
 
 const FilterBar = () => {
   const [searchValue, setSearchValue] = useState("");
-  const debouncevalue = useDebounce(searchValue, 1000);
+  const debounceValue = useDebounce(searchValue, 1000);
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -20,11 +19,11 @@ const FilterBar = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams);
-    params.set("searchTerm", debouncevalue);
+    params.set("searchTerm", debounceValue);
     params.set("page", "1");
     dispatch(setPost({ post: [], new: true }));
     router.push(`?${params.toString()}`);
-  }, [debouncevalue, router]);
+  }, [debounceValue, router]);
 
   return (
     <div className="shrink-0 w-[300px] pr-[10px] flex flex-col gap-[25px]">
@@ -39,7 +38,6 @@ const FilterBar = () => {
       </div>
       <CategoryFilterBox />
       <SortPost />
-      <FilterPremiumContent />
     </div>
   );
 };

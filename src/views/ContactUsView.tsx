@@ -16,27 +16,29 @@ const ContactUsView = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success(
-      "Thank you for reaching out to us. We'll respond as soon as possible."
-    );
+    toast.success("Thank you for reaching out to us. We'll respond as soon as possible.");
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 space-y-12 ">
-      <header className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">Get in Touch</h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+    <div className="container mx-auto px-6 py-12 space-y-16">
+      {/* Header Section */}
+      <header className="text-center space-y-6">
+        <h1 className="text-5xl font-extrabold tracking-tight leading-tight text-primaryMat">
+          Get in Touch
+        </h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Have any inquiries or thoughts to share? We’re here to assist. Reach out to our team for help, collaborations, or just to connect!
         </p>
       </header>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      {/* Contact Form Section */}
+      <section className="grid md:grid-cols-2 gap-12 bg-gray-50 p-8 rounded-lg shadow-lg">
         <Card>
           <CardHeader>
             <CardTitle>Drop Us a Line</CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name">Your Name</Label>
                 <Input
@@ -74,59 +76,62 @@ const ContactUsView = () => {
         </Card>
 
         <div className="space-y-6">
+          {/* Contact Information */}
           <Card>
             <CardHeader>
               <CardTitle>Our Contact Details</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-5 h-5 text-muted-foreground" />
+              <div className="flex items-center space-x-3">
+                <MapPin className="w-5 h-5 text-primaryMat" />
                 <span>456 Explorer Ave, Journey City, 67890</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-5 h-5 text-muted-foreground" />
+              <div className="flex items-center space-x-3">
+                <Phone className="w-5 h-5 text-primaryMat" />
                 <span>+1 (123) 987-6543</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-5 h-5 text-muted-foreground" />
+              <div className="flex items-center space-x-3">
+                <Mail className="w-5 h-5 text-primaryMat" />
                 <span>support@tourizto.com</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Globe className="w-5 h-5 text-muted-foreground" />
+              <div className="flex items-center space-x-3">
+                <Globe className="w-5 h-5 text-primaryMat" />
                 <span>www.tourizto.com</span>
               </div>
             </CardContent>
           </Card>
 
+          {/* Business Hours */}
           <Card>
             <CardHeader>
               <CardTitle>Business Hours</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="text-lg">
               <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
               <p>Saturday: 9:00 AM - 3:00 PM</p>
               <p>Sunday: Closed</p>
             </CardContent>
           </Card>
         </div>
-      </div>
+      </section>
 
-      <section className="space-y-6">
-        <h2 className="text-3xl font-semibold text-center">
+      {/* FAQ Section */}
+      <section className="space-y-8">
+        <h2 className="text-4xl font-bold text-center text-primaryMat">
           Common Questions
         </h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <Card>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Card className="shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
               <CardTitle>How can I sign up?</CardTitle>
             </CardHeader>
             <CardContent>
               <p>
-                To sign up, click the &quot;Sign In&quot; button at the top of our homepage. Follow the steps to enter your information and create your account.
+                To sign up, click the &quot;Sign Up&quot; button at the top of our homepage. Follow the steps to enter your information and create your account.
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
               <CardTitle>Can I share my travel stories?</CardTitle>
             </CardHeader>
@@ -136,7 +141,7 @@ const ContactUsView = () => {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
               <CardTitle>What does premium membership offer?</CardTitle>
             </CardHeader>
@@ -146,7 +151,7 @@ const ContactUsView = () => {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
               <CardTitle>How do I report inappropriate content?</CardTitle>
             </CardHeader>

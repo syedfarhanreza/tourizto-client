@@ -1,7 +1,6 @@
 "use client";
 import { setPost } from "@/redux/features/post/post.slice";
 import { useAppSelector } from "@/redux/hook";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -33,24 +32,21 @@ const FilterPremiumContent = () => {
 
   return (
     <div
-      className="relative w-[200px] group/premium cursor-pointer"
+      className="relative w-[200px] h-[40px] group cursor-pointer transition-transform transform hover:scale-105 active:scale-95"
       onClick={handleSetPremium}
     >
-      <div className="p-[3px] relative overflow-hidden flex items-center w-full h-[40px] rounded-[8px] z-20">
-        <div className="px-[5px] w-full h-full relative z-20 rounded-[5px] flex items-center gap-[20px]">
-          <span className="text-white font-[600]">Premium Only</span>
-          <Switch checked={isPremium} className="bg-white" />
+      <div className="p-[3px] relative overflow-hidden flex items-center w-full h-full rounded-full z-20 bg-gradient-to-r animate-shiftGradient shadow-md">
+        <div className="px-[8px] w-full h-full relative z-20 rounded-full flex items-center gap-[12px] bg-white bg-opacity-20 backdrop-blur-sm transition-colors duration-500 hover:bg-opacity-40">
+          <span className="text-white font-[600] text-sm mr-2">Premium Content</span>
+          <Switch
+            checked={isPremium}
+            className={`bg-white rounded-full transform transition-transform duration-300 ${
+              isPremium ? "translate-x-4" : "translate-x-0"
+            }`}
+          />
         </div>
-        <div className="absolute top-0 left-0 position_center w-[220px] h-[220px] avatarGradient z-10 origin-center"></div>
+        <div className="absolute top-0 left-0 w-[180px] h-[180px] rounded-full opacity-50 transition-all duration-500 ease-in-out bg-gradientRed group-hover:bg-gradientOrange group-hover:scale-110 animate-glowPulse"></div>
       </div>
-      <Image
-        width={100}
-        height={100}
-        src="/images/crown.png"
-        alt="verify"
-        className="absolute top-[-13px] right-[-14px] rotate-[20deg] w-[40px] scale-1 group-hover/premium:rotate-0 group-hover/premium:scale-[1.2] group-hover/premium:z-[30]"
-        style={{ transition: "0.3s" }}
-      />
     </div>
   );
 };

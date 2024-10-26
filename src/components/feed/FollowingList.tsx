@@ -8,7 +8,7 @@ import { useAppDispatch } from "@/redux/hook";
 import { useEffect } from "react";
 import { ImSpinner2 } from "react-icons/im";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-const FolowingList = ({ heading = true }: { heading?: boolean }) => {
+const FollowingList = ({ heading = true }: { heading?: boolean }) => {
   const { data } = useGetFollowingListQuery(undefined);
 
   const [unFollow, { isLoading }] = useUnFollowMutation();
@@ -67,4 +67,4 @@ const FolowingList = ({ heading = true }: { heading?: boolean }) => {
   );
 };
 
-export default FolowingList;
+export default FollowingList;
