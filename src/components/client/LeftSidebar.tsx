@@ -24,7 +24,7 @@ export function LeftSidebar() {
         <SheetTrigger asChild>
           <Menu />
         </SheetTrigger>
-        <SheetContent side="left" className="bg-white">
+        <SheetContent side="left" className="bg-gray-800">
           <SheetHeader>
             <SheetTitle>Menu</SheetTitle>
             <SheetDescription>Choose your route</SheetDescription>

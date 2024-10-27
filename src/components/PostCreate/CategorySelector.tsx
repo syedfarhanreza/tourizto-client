@@ -81,13 +81,13 @@ const CategorySelector: React.FC<IPorps> = ({ onChange }) => {
           />
           {isFocused ? (
             <div
-              className="shadow-2xl bg-white w-full absolute z-10 top-[40px] p-[10px] rounded-md"
+              className="shadow-2xl bg-gray-600 text-white w-full absolute z-10 top-[40px] p-[10px] rounded-md"
               ref={suggestionRef}
             >
               {filterCategories?.map((category) => (
                 <div
                   key={category._id}
-                  className="w-full hover:bg-secondary cursor-pointer py-[5px] px-[10px]"
+                  className="w-full bg-gray-500 hover:bg-secondary cursor-pointer py-[5px] px-[10px]"
                   onClick={() => {
                     setValue("");
                     onChange([...selectedCategories, category]);

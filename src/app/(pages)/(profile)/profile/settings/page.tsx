@@ -63,7 +63,7 @@ const ProfileUpdate = () => {
       }
 
       if (!Object.keys(payload).length) {
-        toast.success("nothing");
+        toast.success("Image updated");
         toast.dismiss(toastId);
         return;
       }
@@ -172,7 +172,7 @@ const ProfileUpdate = () => {
               <Input
                 readOnly
                 value={user?.email}
-                className="mt-1 block w-full px-3 py-2 border border-borderColor rounded-md outline-none bg-[whitesmoke] cursor-not-allowed"
+                className="mt-1 block w-full px-3 py-2 text-gray-950 border border-borderColor rounded-md outline-none bg-[whitesmoke] cursor-not-allowed"
               />
             </div>
 
