@@ -8,6 +8,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import PostCard from "../PostCard/PostCard";
 import PostCardSkeleton from "../skeletons/PostCardSkeleton";
 import NoPostFound from "./NoPostFound";
+import ContentBar from "./ContentBar";
 
 const FeedContent = () => {
   const { data: posts } = useAppSelector((state) => state.post);
@@ -66,6 +67,7 @@ const FeedContent = () => {
 
   return (
     <div className="h-[calc(100vh-200px)] overflow-y-auto overflow-x-hidden smoothBar">
+      <ContentBar/>
       <InfiniteScroll
         pageStart={0}
         loadMore={handleLoadMore}
