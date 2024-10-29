@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import CategoryFilterBox from "./CategoryFilterBox";
 import SortPost from "./SortPost";
+import UserConnections from "./UserConnections";
 
 const FilterBar = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -38,6 +39,7 @@ const FilterBar = () => {
       </div>
       <CategoryFilterBox />
       <SortPost />
+      <UserConnections />
     </div>
   );
 };

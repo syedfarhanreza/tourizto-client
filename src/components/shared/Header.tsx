@@ -29,7 +29,7 @@ const Header = () => {
             />
           </Link>
         </div>
-        <nav className="hidden lg:flex mx-auto gap-16 items-center">
+        <nav className="hidden lg:flex pl-20 mx-auto gap-16 items-center">
           {navLinks.map((nav) => (
             <Link
               key={nav.path}

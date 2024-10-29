@@ -1,4 +1,3 @@
-import ContentBar from "@/components/feed/ContentBar";
 import FeedContent from "@/components/feed/FeedContent";
 import FilterBar from "@/components/feed/FilterBar";
 import HeroSection from "@/components/feed/HeroSection";
@@ -10,7 +9,6 @@ const HomeView = () => {
       <HeroSection />
       <FilterBar />
       <FeedContent />
-      <UserConnections/>
     </div>
   );
 };

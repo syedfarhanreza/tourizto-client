@@ -105,13 +105,16 @@ export default function CreatePostModal() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button
-          variant="outline"
-          className="w-full mb-4 bg-primaryMat text-white"
-        >
-          <PlusCircle className="mr-2 h-4 w-4" />
-          Create Your Post
-        </Button>
+        <div className="flex items-center gap-2 p-2 bg-gray-950 border border-orange-300 rounded-full shadow-sm cursor-pointer hover:bg-gray-800 transition">
+          <Image
+            src={user?.image || "/default-avatar.jpg"}
+            alt="User Avatar"
+            width={40}
+            height={40}
+            className="rounded-full"
+          />
+          <span className="text-gray-500">What's on your mind, {user?.firstName}?</span>
+        </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[625px] max-h-[80vh] overflow-auto smoothBar">
         <DialogHeader>
