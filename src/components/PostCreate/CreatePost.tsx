@@ -17,7 +17,7 @@ import { addNewPost } from "@/redux/features/post/post.slice";
 import { useAppSelector } from "@/redux/hook";
 import { IPostCreate } from "@/types/post";
 import { upLoadSingeImage } from "@/utils/uploadSingleImage";
-import { PlusCircle, Upload } from "lucide-react";
+import { Upload } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { PrimeReactProvider } from "primereact/api";
@@ -107,7 +107,7 @@ export default function CreatePostModal() {
       <DialogTrigger asChild>
         <div className="flex items-center gap-2 p-2 bg-gray-950 border border-orange-300 rounded-full shadow-sm cursor-pointer hover:bg-gray-800 transition">
           <Image
-            src={user?.image || "/default-avatar.jpg"}
+            src={user?.image || "/images/avatar.png"}
             alt="User Avatar"
             width={40}
             height={40}

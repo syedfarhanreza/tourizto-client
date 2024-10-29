@@ -10,7 +10,7 @@ const ContentBar = () => {
   const { user } = useAppSelector((state) => state.auth);
 
   return (
-    <div className="w-full p-4  border-[1px] border-borderDark   rounded-lg mb-1">
+    <div className="w-full p-4  border-[1px] border-gray-800   rounded-lg mb-1">
       <h2 className="font-semibold mb-4">Share your stories</h2>
 
       {user ? (

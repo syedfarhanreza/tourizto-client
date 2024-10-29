@@ -6,12 +6,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import CommentDelete from "./CommentDelete";
 import CommentUpdate from "./CommentUpdate";
 
-interface IPorps {
+interface IProps {
   comment: IComment;
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const CommentCard: React.FC<IPorps> = ({ comment, setPage }) => {
+const CommentCard: React.FC<IProps> = ({ comment, setPage }) => {
   const { comment: commentText, user, createdAt } = comment;
   const { user: auth } = useAppSelector((state) => state.auth);
   return (
@@ -21,7 +21,7 @@ const CommentCard: React.FC<IPorps> = ({ comment, setPage }) => {
         <AvatarFallback>{user.firstName.charAt(0)}</AvatarFallback>
       </Avatar>
       <div className="flex-1">
-        <div className="bg-[#f1f1f1] rounded-lg p-3">
+        <div className="bg-gray-600 rounded-lg p-3">
           <div className="flex flex-col">
             <span className="font-semibold">
               {user.firstName} {user.lastName}

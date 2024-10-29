@@ -27,8 +27,8 @@ const FilterBar = () => {
   }, [debounceValue, router]);
 
   return (
-    <div className="shrink-0 w-[300px] pr-[10px] flex flex-col gap-[25px]">
-      <div className="">
+    <div className="shrink-0 w-[300px] pr-[10px] flex flex-col gap-[25px] hidden lg:block">
+      <div className="hidden md:block"> {/* Hides on small devices */}
         <h3 className="mb-2 text-lg font-medium">Search</h3>
         <Input
           type="text"

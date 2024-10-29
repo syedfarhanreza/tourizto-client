@@ -17,12 +17,12 @@ const CategoryFilterBox = () => {
   const dispatch = useAppDispatch();
 
   const [searchValue, setSearchValue] = useState("N/A");
-  const debouncevalue = useDebounce(searchValue, 500);
+  const debounceValue = useDebounce(searchValue, 500);
   const [isFocused, setIsFocused] = useState(false);
   const ref = useRef<HTMLInputElement | null>(null);
-  const suggestionRef = useRef<HTMLUListElement | null>(null); // Ref for the suggestion list
+  const suggestionRef = useRef<HTMLUListElement | null>(null);
 
-  const { data: suggestion } = useGetCategoriesByNameQuery(debouncevalue, {
+  const { data: suggestion } = useGetCategoriesByNameQuery(debounceValue, {
     skip: !isFocused,
   });
 
@@ -91,24 +91,24 @@ const CategoryFilterBox = () => {
   }, []);
 
   return (
-    <div>
+    <div className="w-full md:w-auto my-2 px-4 sm:px-6 md:px-0">
       <h3 className="mb-2 text-lg font-medium">Categories</h3>
-      <div className="px-[10px] border-[1px] border-borderColor rounded-[5px] w-full h-[40px] mb-[20px] relative">
+      <div className="relative mb-4">
         <input
-          className="border-0 bg-gray-950 border-transparent outline-none w-full h-full"
-          placeholder="search category"
+          className="border border-gray-300 bg-gray-950 rounded-lg w-full h-10 px-3 outline-none focus:ring-2 focus:ring-primary sm:text-sm"
+          placeholder="Search category"
           ref={ref}
           onFocus={() => setIsFocused(true)}
           onChange={(e) => setSearchValue(e.target.value)}
         />
         {suggestion?.data && suggestion?.data.length > 0 && isFocused && (
-          <Card className="absolute left-0 top-[40px] z-10 w-full mt-1 overflow-auto">
+          <Card className="absolute left-0 top-11 z-10 w-full my-1 rounded-lg shadow-lg overflow-auto max-h-60 sm:max-h-40">
             <ul className="py-2" ref={suggestionRef}>
               {suggestion.data.map(({ label, _id }) => (
                 <li
                   key={_id}
                   onClick={() => handleSelectCategory(_id)}
-                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-[10px]"
+                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-3 text-sm sm:text-xs"
                 >
                   <SquareCheck width={13} className="text-primary" /> {label}
                 </li>
@@ -117,11 +117,11 @@ const CategoryFilterBox = () => {
           </Card>
         )}
       </div>
-      <div className="space-y-2">
-        {data?.data.map(({ label, _id }, i) => (
+      <div className="flex flex-col space-y-2 md:space-y-3">
+        {data?.data.map(({ label, _id }) => (
           <div
             onClick={() => handleCategoryChange(_id)}
-            className="flex items-center select-none cursor-pointer"
+            className="flex items-center select-none cursor-pointer text-sm sm:text-xs md:text-sm"
             key={_id + "category"}
           >
             <Checkbox value={_id} checked={selectedCategories.includes(_id)} />

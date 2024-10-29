@@ -6,6 +6,7 @@ import {
   PaginationLink,
 } from "@/components/ui/pagination";
 import React from "react";
+
 const TouriztoPagination = ({
   totalDoc,
   limit,
@@ -35,8 +36,8 @@ const TouriztoPagination = ({
                 }}
                 className={`${
                   currentPage === i + 1
-                    ? "bg-purple text-white bg-primary hover:bg-primary hover:text-white"
-                    : "text-primary hover:text-primary cursor-pointer"
+                    ? "bg-gray-600 text-orange-500 font-bold hover:bg-primary hover:text-orange-500" // Set active page text to orange
+                    : "text-primary hover:text-orange-500 cursor-pointer"
                 } border-[1px] border-secondary w-fit h-fit px-[10px] py-[3px] cursor-pointer`}
               >
                 {i + 1}

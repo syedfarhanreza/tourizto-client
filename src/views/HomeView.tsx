@@ -1,7 +1,7 @@
 import FeedContent from "@/components/feed/FeedContent";
 import FilterBar from "@/components/feed/FilterBar";
 import HeroSection from "@/components/feed/HeroSection";
-import UserConnections from "@/components/feed/UserConnections";
+
 
 const HomeView = () => {
   return (
