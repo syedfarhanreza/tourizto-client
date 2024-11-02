@@ -69,7 +69,7 @@ const AboutUsView = () => {
         <h1 className="text-5xl font-extrabold tracking-tight leading-tight text-primaryMat">
           Discover. Share. Explore.
         </h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        <p className="text-lg text-gray-200 max-w-3xl mx-auto">
           Join our community of travelers and explore the world through
           personalized guides, engaging stories, and invaluable tips from fellow
           adventurers.
@@ -114,7 +114,7 @@ const AboutUsView = () => {
                   <CardTitle className="text-xl font-semibold">{title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-gray-600">{description}</p>
+                  <p className="text-gray-200">{description}</p>
                   <Image
                     src={src}
                     alt={alt}

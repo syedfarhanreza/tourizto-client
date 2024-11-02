@@ -26,7 +26,7 @@ const ContactUsView = () => {
         <h1 className="text-5xl font-extrabold tracking-tight leading-tight text-primaryMat">
           Get in Touch
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-200 max-w-2xl mx-auto">
           Have any inquiries or thoughts to share? We’re here to assist. Reach out to our team for help, collaborations, or just to connect!
         </p>
       </header>

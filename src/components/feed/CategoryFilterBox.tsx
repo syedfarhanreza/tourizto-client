@@ -95,7 +95,7 @@ const CategoryFilterBox = () => {
       <h3 className="mb-2 text-lg font-medium">Categories</h3>
       <div className="relative mb-4">
         <input
-          className="border border-gray-300 bg-gray-950 rounded-lg w-full h-10 px-3 outline-none focus:ring-2 focus:ring-primary sm:text-sm"
+          className="border border-gray-300 bg-transparent rounded-lg w-full h-10 px-3 outline-none focus:ring-2 focus:ring-primary sm:text-sm"
           placeholder="Search category"
           ref={ref}
           onFocus={() => setIsFocused(true)}
@@ -110,7 +110,7 @@ const CategoryFilterBox = () => {
                   onClick={() => handleSelectCategory(_id)}
                   className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-3 text-sm sm:text-xs"
                 >
-                  <SquareCheck width={13} className="text-primary" /> {label}
+                  <SquareCheck width={13} className="text-primary border border-primaryMat" /> {label}
                 </li>
               ))}
             </ul>
